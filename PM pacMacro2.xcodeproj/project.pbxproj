@@ -15,6 +15,7 @@
 		03BFA9F71C4FF6DD00D23801 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BFA9F51C4FF6DD00D23801 /* LaunchScreen.storyboard */; };
 		03BFAA021C4FF6DD00D23801 /* PM_pacMacro2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BFAA011C4FF6DD00D23801 /* PM_pacMacro2Tests.swift */; };
 		03BFAA0D1C4FF6DD00D23801 /* PM_pacMacro2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BFAA0C1C4FF6DD00D23801 /* PM_pacMacro2UITests.swift */; };
+		03DF04051C5BCB2200CA678F /* LoginScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DF04041C5BCB2200CA678F /* LoginScreenController.swift */; };
 		E532E295BA7D3C0D6890AEE8 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754A95BD50177663925DBB69 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		03BFAA081C4FF6DD00D23801 /* PM pacMacro2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PM pacMacro2UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03BFAA0C1C4FF6DD00D23801 /* PM_pacMacro2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PM_pacMacro2UITests.swift; sourceTree = "<group>"; };
 		03BFAA0E1C4FF6DD00D23801 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03DF04041C5BCB2200CA678F /* LoginScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginScreenController.swift; sourceTree = "<group>"; };
 		754A95BD50177663925DBB69 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B34327E246A83D27B256517 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D0419BDBA4085761931F48FD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				03BFA9EC1C4FF6DD00D23801 /* AppDelegate.swift */,
 				03BFA9EE1C4FF6DD00D23801 /* ViewController.swift */,
 				03BFA9F01C4FF6DD00D23801 /* Main.storyboard */,
+				03DF04041C5BCB2200CA678F /* LoginScreenController.swift */,
 				03BFA9F31C4FF6DD00D23801 /* Assets.xcassets */,
 				03BFA9F51C4FF6DD00D23801 /* LaunchScreen.storyboard */,
 				03BFA9F81C4FF6DD00D23801 /* Info.plist */,
@@ -337,6 +340,7 @@
 			files = (
 				03BFA9EF1C4FF6DD00D23801 /* ViewController.swift in Sources */,
 				03BFA9ED1C4FF6DD00D23801 /* AppDelegate.swift in Sources */,
+				03DF04051C5BCB2200CA678F /* LoginScreenController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

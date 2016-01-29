@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login Screen Controller-->
         <scene sceneID="poU-qQ-qQO">
             <objects>
-                <viewController id="3jt-q4-dmf" sceneMemberID="viewController">
+                <viewController id="3jt-q4-dmf" customClass="LoginScreenController" customModule="PM_pacMacro2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rrP-01-VwL"/>
                         <viewControllerLayoutGuide type="bottom" id="Hnl-bN-sht"/>
@@ -18,13 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EZ-ux-wna">
-                                <rect key="frame" x="281" y="496" width="38" height="30"/>
-                                <state key="normal" title="Login"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="ugY-Z3-eZQ"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xhT-BV-f5g">
                                 <rect key="frame" x="20" y="297" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -50,22 +43,35 @@
                                 </constraints>
                                 <state key="normal" title="Default"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTP-o1-iFH">
+                                <rect key="frame" x="20" y="550" width="44" height="30"/>
+                                <state key="normal" title="Admin"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EZ-ux-wna">
+                                <rect key="frame" x="281" y="425" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="ugY-Z3-eZQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9N4-e2-keM" firstAttribute="leading" secondItem="xhT-BV-f5g" secondAttribute="leading" id="9as-BP-OXf"/>
+                            <constraint firstAttribute="bottom" secondItem="eTP-o1-iFH" secondAttribute="bottom" constant="20" symbolic="YES" id="FXh-Vf-wxh"/>
                             <constraint firstItem="ChI-UW-96E" firstAttribute="leading" secondItem="xhT-BV-f5g" secondAttribute="leading" id="I4s-Bg-Fgt"/>
-                            <constraint firstItem="xhT-BV-f5g" firstAttribute="centerX" secondItem="8EZ-ux-wna" secondAttribute="centerX" id="PIx-oG-B6g"/>
                             <constraint firstItem="xhT-BV-f5g" firstAttribute="top" secondItem="ChI-UW-96E" secondAttribute="bottom" constant="34" id="QZe-HY-jpE"/>
-                            <constraint firstItem="Hnl-bN-sht" firstAttribute="top" secondItem="8EZ-ux-wna" secondAttribute="bottom" constant="74" id="QgH-ak-Ved"/>
                             <constraint firstItem="ChI-UW-96E" firstAttribute="leading" secondItem="S9p-cI-6Yt" secondAttribute="leadingMargin" id="UCO-di-zex"/>
-                            <constraint firstItem="8EZ-ux-wna" firstAttribute="centerX" secondItem="S9p-cI-6Yt" secondAttribute="centerX" id="VWH-rR-V8w"/>
                             <constraint firstItem="aUB-1t-2Bu" firstAttribute="leading" secondItem="9N4-e2-keM" secondAttribute="trailing" constant="8" symbolic="YES" id="Vdw-uH-cwN"/>
+                            <constraint firstItem="8EZ-ux-wna" firstAttribute="centerX" secondItem="S9p-cI-6Yt" secondAttribute="centerX" id="VwU-Ek-FqZ"/>
                             <constraint firstItem="9N4-e2-keM" firstAttribute="baseline" secondItem="aUB-1t-2Bu" secondAttribute="baseline" id="ZKx-aq-poh"/>
+                            <constraint firstItem="eTP-o1-iFH" firstAttribute="leading" secondItem="9N4-e2-keM" secondAttribute="leading" id="aNe-GT-zTi"/>
+                            <constraint firstItem="8EZ-ux-wna" firstAttribute="centerX" secondItem="xhT-BV-f5g" secondAttribute="centerX" id="d0F-Zs-wek"/>
                             <constraint firstItem="aUB-1t-2Bu" firstAttribute="top" secondItem="xhT-BV-f5g" secondAttribute="bottom" constant="25" id="e7p-gL-EUw"/>
                             <constraint firstItem="xhT-BV-f5g" firstAttribute="trailing" secondItem="ChI-UW-96E" secondAttribute="trailing" id="heF-oa-e8c"/>
                             <constraint firstItem="ChI-UW-96E" firstAttribute="top" secondItem="rrP-01-VwL" secondAttribute="bottom" constant="171" id="kBh-qn-f1v"/>
                             <constraint firstItem="xhT-BV-f5g" firstAttribute="trailing" secondItem="aUB-1t-2Bu" secondAttribute="trailing" id="lPe-xZ-JZg"/>
+                            <constraint firstItem="8EZ-ux-wna" firstAttribute="top" secondItem="9N4-e2-keM" secondAttribute="bottom" constant="42" id="z2h-HL-iF6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gNS-R2-N4R"/>
