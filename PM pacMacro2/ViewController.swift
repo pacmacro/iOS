@@ -1,25 +1,21 @@
-//
-//  ViewController.swift
-//  PM pacMacro2
-//
-//  Created by Josh Wu on 2016-01-20.
-//  Copyright © 2016 Josh Wu. All rights reserved.
-//
-
-import UIKit
+import Mapbox
 
 class ViewController: UIViewController {
-
+    
+    var mapView: MGLMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // initialize the map view
+        mapView = MGLMapView(frame: view.bounds, styleURL: NSURL(string: "mapbox://styles/ctrlshiftgo/cihfgoup600o2jnkx6dhzb3eh"))
+        mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        
+        // set the map's center coordinate
+        mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: 49.280915,
+            longitude: -123.122352),
+            zoomLevel: 15, animated: false)
+        view.addSubview(mapView)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
+    
 }
-

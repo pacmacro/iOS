@@ -1,13 +1,99 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="h7p-5C-B1T">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
+        <scene sceneID="poU-qQ-qQO">
+            <objects>
+                <viewController id="3jt-q4-dmf" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rrP-01-VwL"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hnl-bN-sht"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="S9p-cI-6Yt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EZ-ux-wna">
+                                <rect key="frame" x="281" y="496" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="ugY-Z3-eZQ"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xhT-BV-f5g">
+                                <rect key="frame" x="20" y="297" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Server" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9N4-e2-keM">
+                                <rect key="frame" x="20" y="353" width="502" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="ChI-UW-96E">
+                                <rect key="frame" x="20" y="235" width="560" height="29"/>
+                                <segments>
+                                    <segment title="PacPerson"/>
+                                    <segment title="Ghost"/>
+                                    <segment title="Viewer"/>
+                                </segments>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUB-1t-2Bu">
+                                <rect key="frame" x="530" y="352" width="50" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="chA-Q5-4Wc"/>
+                                </constraints>
+                                <state key="normal" title="Default"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9N4-e2-keM" firstAttribute="leading" secondItem="xhT-BV-f5g" secondAttribute="leading" id="9as-BP-OXf"/>
+                            <constraint firstItem="ChI-UW-96E" firstAttribute="leading" secondItem="xhT-BV-f5g" secondAttribute="leading" id="I4s-Bg-Fgt"/>
+                            <constraint firstItem="xhT-BV-f5g" firstAttribute="centerX" secondItem="8EZ-ux-wna" secondAttribute="centerX" id="PIx-oG-B6g"/>
+                            <constraint firstItem="xhT-BV-f5g" firstAttribute="top" secondItem="ChI-UW-96E" secondAttribute="bottom" constant="34" id="QZe-HY-jpE"/>
+                            <constraint firstItem="Hnl-bN-sht" firstAttribute="top" secondItem="8EZ-ux-wna" secondAttribute="bottom" constant="74" id="QgH-ak-Ved"/>
+                            <constraint firstItem="ChI-UW-96E" firstAttribute="leading" secondItem="S9p-cI-6Yt" secondAttribute="leadingMargin" id="UCO-di-zex"/>
+                            <constraint firstItem="8EZ-ux-wna" firstAttribute="centerX" secondItem="S9p-cI-6Yt" secondAttribute="centerX" id="VWH-rR-V8w"/>
+                            <constraint firstItem="aUB-1t-2Bu" firstAttribute="leading" secondItem="9N4-e2-keM" secondAttribute="trailing" constant="8" symbolic="YES" id="Vdw-uH-cwN"/>
+                            <constraint firstItem="9N4-e2-keM" firstAttribute="baseline" secondItem="aUB-1t-2Bu" secondAttribute="baseline" id="ZKx-aq-poh"/>
+                            <constraint firstItem="aUB-1t-2Bu" firstAttribute="top" secondItem="xhT-BV-f5g" secondAttribute="bottom" constant="25" id="e7p-gL-EUw"/>
+                            <constraint firstItem="xhT-BV-f5g" firstAttribute="trailing" secondItem="ChI-UW-96E" secondAttribute="trailing" id="heF-oa-e8c"/>
+                            <constraint firstItem="ChI-UW-96E" firstAttribute="top" secondItem="rrP-01-VwL" secondAttribute="bottom" constant="171" id="kBh-qn-f1v"/>
+                            <constraint firstItem="xhT-BV-f5g" firstAttribute="trailing" secondItem="aUB-1t-2Bu" secondAttribute="trailing" id="lPe-xZ-JZg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gNS-R2-N4R"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WkW-fX-1EO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-241" y="447"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IjV-8t-FmF">
+            <objects>
+                <navigationController id="h7p-5C-B1T" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kfp-ra-1gh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="3jt-q4-dmf" kind="relationship" relationship="rootViewController" id="Ym4-Ba-ZQO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mqS-9W-mVl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-987" y="467"/>
+        </scene>
+        <!--Map Screen-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Map Screen" customClass="ViewController" customModule="PM_pacMacro2" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -20,6 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="443" y="447"/>
         </scene>
     </scenes>
 </document>

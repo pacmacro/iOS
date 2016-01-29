@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0324C2D01C4FF87100BFAC71 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0324C2CF1C4FF87100BFAC71 /* Settings.bundle */; };
 		03BFA9ED1C4FF6DD00D23801 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BFA9EC1C4FF6DD00D23801 /* AppDelegate.swift */; };
 		03BFA9EF1C4FF6DD00D23801 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BFA9EE1C4FF6DD00D23801 /* ViewController.swift */; };
 		03BFA9F21C4FF6DD00D23801 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BFA9F01C4FF6DD00D23801 /* Main.storyboard */; };
@@ -14,6 +15,7 @@
 		03BFA9F71C4FF6DD00D23801 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BFA9F51C4FF6DD00D23801 /* LaunchScreen.storyboard */; };
 		03BFAA021C4FF6DD00D23801 /* PM_pacMacro2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BFAA011C4FF6DD00D23801 /* PM_pacMacro2Tests.swift */; };
 		03BFAA0D1C4FF6DD00D23801 /* PM_pacMacro2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BFAA0C1C4FF6DD00D23801 /* PM_pacMacro2UITests.swift */; };
+		E532E295BA7D3C0D6890AEE8 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754A95BD50177663925DBB69 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0324C2CF1C4FF87100BFAC71 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		03BFA9E91C4FF6DD00D23801 /* PM pacMacro2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PM pacMacro2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03BFA9EC1C4FF6DD00D23801 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03BFA9EE1C4FF6DD00D23801 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +50,9 @@
 		03BFAA081C4FF6DD00D23801 /* PM pacMacro2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PM pacMacro2UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03BFAA0C1C4FF6DD00D23801 /* PM_pacMacro2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PM_pacMacro2UITests.swift; sourceTree = "<group>"; };
 		03BFAA0E1C4FF6DD00D23801 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		754A95BD50177663925DBB69 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B34327E246A83D27B256517 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		D0419BDBA4085761931F48FD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E532E295BA7D3C0D6890AEE8 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +88,8 @@
 				03BFAA001C4FF6DD00D23801 /* PM pacMacro2Tests */,
 				03BFAA0B1C4FF6DD00D23801 /* PM pacMacro2UITests */,
 				03BFA9EA1C4FF6DD00D23801 /* Products */,
+				5C838B54D44F27FAD7789320 /* Pods */,
+				EB7D2A2B341810A12385E01B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +106,7 @@
 		03BFA9EB1C4FF6DD00D23801 /* PM pacMacro2 */ = {
 			isa = PBXGroup;
 			children = (
+				0324C2CF1C4FF87100BFAC71 /* Settings.bundle */,
 				03BFA9EC1C4FF6DD00D23801 /* AppDelegate.swift */,
 				03BFA9EE1C4FF6DD00D23801 /* ViewController.swift */,
 				03BFA9F01C4FF6DD00D23801 /* Main.storyboard */,
@@ -125,6 +135,23 @@
 			path = "PM pacMacro2UITests";
 			sourceTree = "<group>";
 		};
+		5C838B54D44F27FAD7789320 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D0419BDBA4085761931F48FD /* Pods.debug.xcconfig */,
+				9B34327E246A83D27B256517 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EB7D2A2B341810A12385E01B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				754A95BD50177663925DBB69 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03BFAA111C4FF6DD00D23801 /* Build configuration list for PBXNativeTarget "PM pacMacro2" */;
 			buildPhases = (
+				1A6FA648D582F7DA3B210DE0 /* Check Pods Manifest.lock */,
 				03BFA9E51C4FF6DD00D23801 /* Sources */,
 				03BFA9E61C4FF6DD00D23801 /* Frameworks */,
 				03BFA9E71C4FF6DD00D23801 /* Resources */,
+				2FEBBA2F5A29381822AADB35 /* Embed Pods Frameworks */,
+				A05A95708843D7FF01E9460A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -229,6 +259,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0324C2D01C4FF87100BFAC71 /* Settings.bundle in Resources */,
 				03BFA9F71C4FF6DD00D23801 /* LaunchScreen.storyboard in Resources */,
 				03BFA9F41C4FF6DD00D23801 /* Assets.xcassets in Resources */,
 				03BFA9F21C4FF6DD00D23801 /* Main.storyboard in Resources */,
@@ -250,6 +281,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A6FA648D582F7DA3B210DE0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2FEBBA2F5A29381822AADB35 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A05A95708843D7FF01E9460A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		03BFA9E51C4FF6DD00D23801 /* Sources */ = {
@@ -395,6 +474,7 @@
 		};
 		03BFAA121C4FF6DD00D23801 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0419BDBA4085761931F48FD /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "PM pacMacro2/Info.plist";
@@ -406,6 +486,7 @@
 		};
 		03BFAA131C4FF6DD00D23801 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B34327E246A83D27B256517 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "PM pacMacro2/Info.plist";
@@ -482,6 +563,7 @@
 				03BFAA131C4FF6DD00D23801 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03BFAA141C4FF6DD00D23801 /* Build configuration list for PBXNativeTarget "PM pacMacro2Tests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +572,7 @@
 				03BFAA161C4FF6DD00D23801 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		03BFAA171C4FF6DD00D23801 /* Build configuration list for PBXNativeTarget "PM pacMacro2UITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +581,7 @@
 				03BFAA191C4FF6DD00D23801 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
