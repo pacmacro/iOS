@@ -1,10 +1,13 @@
 import Mapbox
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,
+                        MGLMapViewDelegate{
     //Controller for the mapview, i haven't renamed this since it would break a bunch of other elements
     
     var mapView: MGLMapView!
-    
+    var timer: NSTimer = NSTimer()
+    var times = 0
+    var annotationList: [Int] = []
     //Information
 
     override func viewDidLoad() {
@@ -19,9 +22,17 @@ class ViewController: UIViewController {
             longitude: -123.122352),
             zoomLevel: 15, animated: false)
         view.addSubview(mapView)
-        
+        mapView.delegate = self
         //Drawing overlay
-        drawBoundingRect()
+        //drawBoundingRect()
+        
+        //Initialize Annotation List
+        //Call Timer Object
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.mapLoop), userInfo: nil, repeats: true )
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        timer.invalidate()
+        print("TImer should have been invalidated\n")
     }
     func drawBoundingRect(){
         //Setup center location
@@ -45,5 +56,73 @@ class ViewController: UIViewController {
     func mapView(mapView: MGLMapView, fillColorForPolygonAnnotation annotation: MGLPolygon) -> UIColor {
         return UIColor.whiteColor()
     }
+    /*
+     * This is the main logic for the map as it is updating
+     * Called by a timer object
+     * Calls functions to get data from the server and calls draw player on each
+     */
+    func mapLoop(){
+        //Initializing and setup
+        var currentPlayers: [player] = getPlayers()
+        currentPlayers = getPlayers()
+        //Update Player locations on map
+        for player in currentPlayers{
+            drawPlayer(player, annotationList: &annotationList)
+        }
+        //Counter for times this has looped
+        print("I have waited \(times) many times")
+        print("I have generated \(Double(arc4random_uniform(9))/100) this random number")
+        times += 1
+    }
+    func getPlayers() -> [player]{
+        //Calls the server
+        //Pretending to call server
+        let listOfPlayers: [player] = [
+            player.init(playerID: 1, playerName: "Josh", playerType: "PacMan", coordinates: CLLocationCoordinate2DMake(49.280915 + Double(arc4random_uniform(9))/100, -123.122352 + Double(arc4random_uniform(9))/100)),
+            player.init(playerID: 2, playerName: "Adam", playerType: "Ghost", coordinates: CLLocationCoordinate2DMake(49.280915 + Double(arc4random_uniform(9))/100, -123.122352 + Double(arc4random_uniform(9)/1000))),
+            player.init(playerID: 3, playerName: "Sarah", playerType: "Ghost", coordinates: CLLocationCoordinate2DMake(49.280915 + Double(arc4random_uniform(9))/100, -123.122352 + Double(arc4random_uniform(9)/1000)))
+            ]
+        return listOfPlayers
+        //Returns a list of aplayer objects
+    }
+    /*
+     * Will check to see if the player has already been drawn
+     * Removes the existing player based on the id
+     * Redraws them at the new location
+     */
+    func drawPlayer(playerInput: player, inout annotationList: [Int]){
+        let playerIcon = MGLPointAnnotation()
+        playerIcon.coordinate = playerInput.coordinates
+        playerIcon.title = playerInput.playerName
+        mapView(self.mapView, imageForAnnotation: playerIcon, playerInput: playerInput)
+        //Check for player already existing on the screen
+        if(true){
+            mapView.removeAnnotation(playerIcon)
+        }
+        mapView.addAnnotation(playerIcon)
+        annotationList.append(playerInput.playerID)
+    }
+    func mapView(mapView: MGLMapView, imageForAnnotation annotation: MGLAnnotation, playerInput: player) -> MGLAnnotationImage?{
+        var annotationImage = mapView.dequeueReusableAnnotationImageWithIdentifier("Ghost")
+        if annotationImage == nil {
+            // Leaning Tower of Pisa by Stefan Spieler from the Noun Project
+            let image = UIImage(named: "Ghost")
+            annotationImage = MGLAnnotationImage(image: image!, reuseIdentifier: "Ghost")
+        }
+        return annotationImage
+    }
     
+}
+class player{
+    var playerID:   Int
+    var playerName: String
+    var playerType: String
+    var coordinates: CLLocationCoordinate2D
+    
+    init(playerID: Int, playerName: String, playerType: String, coordinates: CLLocationCoordinate2D){
+        self.playerID   = playerID
+        self.playerName = playerName
+        self.playerType = playerType
+        self.coordinates = coordinates
+    }
 }
