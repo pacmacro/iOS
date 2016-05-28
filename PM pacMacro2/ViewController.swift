@@ -7,7 +7,7 @@ class ViewController: UIViewController,
     var mapView: MGLMapView!
     var timer: NSTimer = NSTimer()
     var times = 0
-    var annotationList: [Int] = []
+    var annotationList: [MGLPointAnnotation] = [] //list of annotations to display on the map
     //Information
 
     override func viewDidLoad() {
@@ -69,6 +69,7 @@ class ViewController: UIViewController,
         for player in currentPlayers{
             drawPlayer(player, annotationList: &annotationList)
         }
+        redrawAnnotations(annotationList)
         //Counter for times this has looped
         print("I have waited \(times) many times")
         print("I have generated \(Double(arc4random_uniform(9))/100) this random number")
@@ -90,22 +91,35 @@ class ViewController: UIViewController,
      * Removes the existing player based on the id
      * Redraws them at the new location
      */
-    func drawPlayer(playerInput: player, inout annotationList: [Int]){
+    func drawPlayer(playerInput: player, inout annotationList: [MGLPointAnnotation]){
         let playerIcon = MGLPointAnnotation()
         playerIcon.coordinate = playerInput.coordinates
         playerIcon.title = playerInput.playerName
         mapView(self.mapView, imageForAnnotation: playerIcon, playerInput: playerInput)
         //Check for player already existing on the screen
-        if(true){
-            mapView.removeAnnotation(playerIcon)
+        var annotationExists: Bool = false
+        for annotation in annotationList {
+            if annotation.title == playerInput.playerName {
+                annotationExists = true
+                annotation.coordinate = playerInput.coordinates
+            }
         }
-        mapView.addAnnotation(playerIcon)
-        annotationList.append(playerInput.playerID)
+        if(!annotationExists){
+            mapView.addAnnotation(playerIcon)
+            annotationList.append(playerIcon)
+        }
     }
+    
+    func redrawAnnotations(annotationList: [MGLPointAnnotation]){
+        
+        mapView.removeAnnotations(annotationList)
+        mapView.addAnnotations(annotationList)
+        
+    }
+    
     func mapView(mapView: MGLMapView, imageForAnnotation annotation: MGLAnnotation, playerInput: player) -> MGLAnnotationImage?{
         var annotationImage = mapView.dequeueReusableAnnotationImageWithIdentifier("Ghost")
         if annotationImage == nil {
-            // Leaning Tower of Pisa by Stefan Spieler from the Noun Project
             let image = UIImage(named: "Ghost")
             annotationImage = MGLAnnotationImage(image: image!, reuseIdentifier: "Ghost")
         }
