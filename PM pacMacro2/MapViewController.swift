@@ -92,14 +92,18 @@ class ViewController: UIViewController,
      * Redraws them at the new location
      */
     func drawPlayer(playerInput: player, inout annotationList: [MGLPointAnnotation]){
+        
+        // Setting up annotation object
         let playerIcon = MGLPointAnnotation()
         playerIcon.coordinate = playerInput.coordinates
-        playerIcon.title = playerInput.playerName
-        mapView(self.mapView, imageForAnnotation: playerIcon, playerInput: playerInput)
+        playerIcon.title = playerInput.playerType + "-" + playerInput.playerName
+                
         //Check for player already existing on the screen
         var annotationExists: Bool = false
         for annotation in annotationList {
-            if annotation.title == playerInput.playerName {
+            
+            if annotation.title == playerInput.playerType + "-" + playerInput.playerName {
+                
                 annotationExists = true
                 annotation.coordinate = playerInput.coordinates
             }
