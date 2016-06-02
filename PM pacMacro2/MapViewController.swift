@@ -24,9 +24,11 @@ class ViewController: UIViewController,
         view.addSubview(mapView)
         mapView.delegate = self
         //Drawing overlay
+        
         //drawBoundingRect()
         
         //Initialize Annotation List
+        
         //Call Timer Object
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.mapLoop), userInfo: nil, repeats: true )
     }
@@ -71,7 +73,7 @@ class ViewController: UIViewController,
         }
         redrawAnnotations(annotationList)
         //Counter for times this has looped
-        print("I have waited \(times) many times")
+        print("I have waited \(times) cycles")
         print("I have generated \(Double(arc4random_uniform(9))/100) this random number")
         times += 1
     }
@@ -113,7 +115,7 @@ class ViewController: UIViewController,
             annotationList.append(playerIcon)
         }
     }
-    
+    // Removes all existing annotations and replaces them to update coordinates
     func redrawAnnotations(annotationList: [MGLPointAnnotation]){
         
         mapView.removeAnnotations(annotationList)
