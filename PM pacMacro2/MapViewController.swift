@@ -123,10 +123,11 @@ class ViewController: UIViewController,
         
     }
     
-    func mapView(mapView: MGLMapView, imageForAnnotation annotation: MGLAnnotation, playerInput: player) -> MGLAnnotationImage?{
+    func mapView(mapView: MGLMapView, imageForAnnotation annotation: MGLAnnotation) -> MGLAnnotationImage?{
         var annotationImage = mapView.dequeueReusableAnnotationImageWithIdentifier("Ghost")
         if annotationImage == nil {
-            let image = UIImage(named: "Ghost")
+            
+            var image = UIImage(named: "Ghost")
             annotationImage = MGLAnnotationImage(image: image!, reuseIdentifier: "Ghost")
         }
         return annotationImage
