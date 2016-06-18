@@ -128,14 +128,7 @@ class ViewController: UIViewController,
     func mapView(mapView: MGLMapView, imageForAnnotation annotation: MGLAnnotation) -> MGLAnnotationImage?{
         var imageName = "";
         if let iconType : String = annotation.subtitle! {
-            switch iconType {
-            case "Ghost":
-                imageName = "Ghost"
-            case "Pacman":
-                imageName = "Pacman"
-            default:
-                imageName = ""
-            }
+            imageName = iconType;
         }
         var annotationImage = mapView.dequeueReusableAnnotationImageWithIdentifier(imageName)
         let playerName : String = annotation.title!!
