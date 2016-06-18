@@ -30,7 +30,7 @@ class ViewController: UIViewController,
         //Initialize Annotation List
         
         //Call Timer Object
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.mapLoop), userInfo: nil, repeats: true )
+        timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(ViewController.mapLoop), userInfo: nil, repeats: true )
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         timer.invalidate()
