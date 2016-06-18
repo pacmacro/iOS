@@ -99,6 +99,7 @@ class ViewController: UIViewController,
         let playerIcon = MGLPointAnnotation()
         playerIcon.coordinate = playerInput.coordinates
         playerIcon.title = playerInput.playerType + "-" + playerInput.playerName
+        playerIcon.subtitle = playerInput.playerType
                 
         //Check for player already existing on the screen
         var annotationExists: Bool = false
