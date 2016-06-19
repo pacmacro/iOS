@@ -127,15 +127,9 @@ class ViewController: UIViewController,
     /// Delegate function to set images for annotations. Will set the image based on the title of the annotation.
     func mapView(mapView: MGLMapView, imageForAnnotation annotation: MGLAnnotation) -> MGLAnnotationImage?{
         var imageName = "";
+        // Unwrap the annotation subtitle
         if let iconType : String = annotation.subtitle! {
-            switch iconType {
-            case "Ghost":
-                imageName = "Ghost"
-            case "Pacman":
-                imageName = "Pacman"
-            default:
-                imageName = ""
-            }
+            imageName = iconType;
         }
         var annotationImage = mapView.dequeueReusableAnnotationImageWithIdentifier(imageName)
         let playerName : String = annotation.title!!
