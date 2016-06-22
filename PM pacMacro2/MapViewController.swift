@@ -141,16 +141,3 @@ class ViewController: UIViewController,
     }
     
 }
-class player{
-    var playerID:   Int
-    var playerName: String
-    var playerType: String
-    var coordinates: CLLocationCoordinate2D
-    
-    init(playerID: Int, playerName: String, playerType: String, coordinates: CLLocationCoordinate2D){
-        self.playerID   = playerID
-        self.playerName = playerName
-        self.playerType = playerType
-        self.coordinates = coordinates
-    }
-}
