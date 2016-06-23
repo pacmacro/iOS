@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PacmacroInternal {
+class PacmacroInternalLogic {
     
     private var currentPlayer : playerType = playerType.viewer;
 
