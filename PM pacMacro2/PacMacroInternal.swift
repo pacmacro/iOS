@@ -8,8 +8,15 @@
 
 import UIKit
 
-class PacMacroInternal {
+class PacmacroInternal {
     
-    
+    private var currentPlayer : playerType = playerType.viewer;
+
+    enum playerType{
+        
+        case viewer
+        case ghost
+        case pacman
+    }
     
 }
