@@ -10,12 +10,12 @@ import UIKit
 import Mapbox
 
 class player{
-    var playerID:   Int
+    var playerID:   String
     var playerName: String
     var playerType: String
     var coordinates: CLLocationCoordinate2D
     
-    init(playerID: Int, playerName: String, playerType: String, coordinates: CLLocationCoordinate2D){
+    init(playerID: String, playerName: String, playerType: String, coordinates: CLLocationCoordinate2D){
         self.playerID   = playerID
         self.playerName = playerName
         self.playerType = playerType
