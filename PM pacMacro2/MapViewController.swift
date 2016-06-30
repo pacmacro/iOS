@@ -81,14 +81,14 @@ class ViewController: UIViewController,
         //Calls the server
         //Pretending to call server
         let listOfPlayers: [player] = [
-            player.init(playerID: 1, playerName: "Josh", playerType: "Pacman", coordinates: CLLocationCoordinate2DMake(49.280915 + Double(arc4random_uniform(9))/1000, -123.122352 + Double(arc4random_uniform(9))/1000)),
-            player.init(playerID: 2, playerName: "Adam", playerType: "Ghost", coordinates: CLLocationCoordinate2DMake(49.280915 + Double(arc4random_uniform(9))/1000, -123.122352 + Double(arc4random_uniform(9)/10000))),
-            player.init(playerID: 3, playerName: "Sarah", playerType: "Ghost", coordinates: CLLocationCoordinate2DMake(49.280915 + Double(arc4random_uniform(9))/1000, -123.122352 + Double(arc4random_uniform(9)/10000)))
+            player.init(playerID: "1", playerName: "Josh", playerType: "Pacman", coordinates: CLLocationCoordinate2DMake(49.280915 + Double(arc4random_uniform(9))/1000, -123.122352 + Double(arc4random_uniform(9))/1000)),
+            player.init(playerID: "2", playerName: "Adam", playerType: "Ghost", coordinates: CLLocationCoordinate2DMake(49.280915 + Double(arc4random_uniform(9))/1000, -123.122352 + Double(arc4random_uniform(9)/10000))),
+            player.init(playerID: "3", playerName: "Sarah", playerType: "Ghost", coordinates: CLLocationCoordinate2DMake(49.280915 + Double(arc4random_uniform(9))/1000, -123.122352 + Double(arc4random_uniform(9)/10000)))
             ]
         return listOfPlayers
         //Returns a list of aplayer objects
     }
-    /*
+    /**
      * Will check to see if the player has already been drawn
      * Removes the existing player based on the id
      * Redraws them at the new location
