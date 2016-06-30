@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Mapbox
 
-class PacmacroInternalLogic {
+public class playerList {
     
-    private var currentPlayer : playerType = playerType.viewer;
-
+    private var currentPlayers : [player] = []
+    
     enum playerType{
         
         case viewer
