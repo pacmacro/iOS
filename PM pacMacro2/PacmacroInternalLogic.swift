@@ -20,4 +20,22 @@ public class playerList {
         case pacman
     }
     
+    func getPlayers() -> [player] {
+        let tempPlayers : [player] = []
+        return tempPlayers
+    }
+    
+    func getDots() -> [dot] {
+        let dots : [dot] = []
+        return dots
+    }
+    
+    
+    
+    func setCurrentLocation( coordinates : CLLocationCoordinate2D ){
+        
+    }
+    
+    
+    
 }
