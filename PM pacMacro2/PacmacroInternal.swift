@@ -11,12 +11,12 @@ import UIKit
 class PacMacroInternal {
     
     private var currentPlayer : playerType = playerType.viewer;
-    #
     enum playerType{
         
         case viewer
         case ghost
         case pacman
     }
+    
     
 }
