@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PacMacroInternal {
+class Game {
     
     private var currentPlayer : playerType = playerType.viewer;
     enum playerType{
