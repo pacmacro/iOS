@@ -13,11 +13,13 @@ public class Dot {
     private var id : String
     private var coordinates : CLLocationCoordinate2D
     private var isCollectedBool : Bool
+    private var isPowerDot : Bool
     
-    init(id : String, coordinates : CLLocationCoordinate2D, isCollectedBool : Bool){
+    init(id : String, coordinates : CLLocationCoordinate2D, isCollectedBool : Bool, isPowerDot : Bool){
         self.id = id
         self.coordinates = coordinates
         self.isCollectedBool = isCollectedBool
+        self.isPowerDot = isPowerDot
     }
     
     public func getCoordinates() -> CLLocationCoordinate2D{
