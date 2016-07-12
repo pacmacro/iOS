@@ -9,7 +9,7 @@
 import UIKit
 import Mapbox
 
-public class dot {
+public class Dot {
     private var id : String
     private var coordinates : CLLocationCoordinate2D
     private var isCollectedBool : Bool
