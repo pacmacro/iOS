@@ -13,6 +13,7 @@ class Player{
     var playerID:   String
     var playerName: String
     var playerType: String
+    var status : playerStatus
     var coordinates: CLLocationCoordinate2D
     
     init(playerID: String, playerName: String, playerType: String, coordinates: CLLocationCoordinate2D){
@@ -20,5 +21,38 @@ class Player{
         self.playerName = playerName
         self.playerType = playerType
         self.coordinates = coordinates
+        self.status = playerStatus.normal
+    }
+    
+    
+    func setCaptured() -> Bool{
+        if(status == playerStatus.captured || status == playerStatus.redPellet){
+            return false
+        }
+        else {
+            status = playerStatus.captured
+            return true
+        }
+    }
+    
+    func isCaptured() -> Bool{
+        if(status == playerStatus.captured){
+            return true
+        }
+        return false
+    }
+    
+    func isRedPelleted() -> Bool{
+        if(status == playerStatus.redPellet){
+            return true
+        }
+        return false
+    }
+    
+    enum playerStatus{
+        
+        case normal
+        case captured
+        case redPellet
     }
 }
