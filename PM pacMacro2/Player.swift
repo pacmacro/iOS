@@ -25,7 +25,7 @@ public class Player{
     }
     
     
-    func setCaptured() -> Bool{
+    public func setCaptured() -> Bool{
         if(status == playerStatus.captured || status == playerStatus.redPellet){
             return false
         }
@@ -35,24 +35,32 @@ public class Player{
         }
     }
     
-    func isCaptured() -> Bool{
+    public func isCaptured() -> Bool{
         if(status == playerStatus.captured){
             return true
         }
         return false
     }
     
-    func isRedPelleted() -> Bool{
+    public func isRedPelleted() -> Bool{
         if(status == playerStatus.redPellet){
             return true
         }
         return false
     }
     
-    enum playerStatus{
+    public enum playerStatus{
         
         case normal
         case captured
         case redPellet
+    }
+    
+    public enum playerType{
+        
+        case ghostViewer
+        case pacmanViewer
+        case ghost
+        case pacman
     }
 }

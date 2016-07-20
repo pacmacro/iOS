@@ -12,11 +12,11 @@ public class Game {
     
     var players : [Player]
     private var dots : [Dot]
-    private var currentPlayerType : playerType
+    private var currentPlayerType : Player.playerType
     let pacman : Player
     
     
-    init(players: [Player], dots : [Dot], currentPlayerType : playerType){
+    init(players: [Player], dots : [Dot], currentPlayerType : Player.playerType){
         self.players = players
         self.dots = dots
         self.currentPlayerType = currentPlayerType
@@ -25,11 +25,11 @@ public class Game {
     
     public func getVisiblePlayers() -> [Player]{
         switch currentPlayerType {
-        case playerType.pacmanViewer:
+        case Player.playerType.pacmanViewer:
             // Player can see everyone
             return players
             
-        case playerType.ghostViewer:
+        case Player.playerType.ghostViewer:
             if( pacman.isCaptured() || pacman.isRedPelleted() ){
                 // Player can see everyone
                 return players
@@ -50,11 +50,5 @@ public class Game {
     
     
     
-    enum playerType{
-        
-        case ghostViewer
-        case pacmanViewer
-        case ghost
-        case pacman
-    }
+
 }
