@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Game {
+public class Game {
     
     var players : [Player]
     private var dots : [Dot]
@@ -23,7 +23,7 @@ class Game {
         pacman = players.filter({$0.playerType == "pacman"})[0]
     }
     
-    func getVisiblePlayers() -> [Player]{
+    public func getVisiblePlayers() -> [Player]{
         switch currentPlayerType {
         case playerType.pacmanViewer:
             // Player can see everyone
@@ -44,9 +44,11 @@ class Game {
         }
     }
     
-    func getVisibleDots() -> [Dot]{
+    public func getVisibleDots() -> [Dot]{
         return dots.filter({!$0.isCollected()})
     }
+    
+    
     
     enum playerType{
         

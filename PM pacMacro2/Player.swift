@@ -9,7 +9,7 @@
 import UIKit
 import Mapbox
 
-class Player{
+public class Player{
     var playerID:   String
     var playerName: String
     var playerType: String
