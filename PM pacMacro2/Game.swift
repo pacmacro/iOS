@@ -13,14 +13,14 @@ class Game {
     var players : [Player]
     private var dots : [Dot]
     private var currentPlayerType : playerType
-    private var currentPacmanStatus : pacmanStatus
+    let pacman : Player
     
     
     init(players: [Player], dots : [Dot], currentPlayerType : playerType){
         self.players = players
         self.dots = dots
         self.currentPlayerType = currentPlayerType
-        self.currentPacmanStatus = pacmanStatus.normal
+        pacman = players.filter({$0.playerType == "pacman"})[0]
     }
     
     func getVisiblePlayers() -> [Player]{
@@ -30,7 +30,7 @@ class Game {
             return players
             
         case playerType.ghostViewer:
-            if(currentPacmanStatus == pacmanStatus.redPellet || currentPacmanStatus == pacmanStatus.captured){
+            if( pacman.isCaptured() || pacman.isRedPelleted() ){
                 // Player can see everyone
                 return players
             } else {
@@ -55,12 +55,4 @@ class Game {
         case ghost
         case pacman
     }
-    
-    enum pacmanStatus{
-        
-        case normal
-        case captured
-        case redPellet
-    }
-    
 }
