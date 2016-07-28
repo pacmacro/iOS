@@ -48,7 +48,8 @@ public class Game {
         return dots.filter({!$0.isCollected()})
     }
     
-    
-    
+    public func updateFromServer(){
+        // TODO: Implement
+    }
 
 }
