@@ -65,7 +65,7 @@ class ViewController: UIViewController,
      */
     func mapLoop(){
         //Initializing and setup
-        var currentPlayers: [player] = getPlayers()
+        var currentPlayers: [Player] = getPlayers()
         currentPlayers = getPlayers()
         //Update Player locations on map
         for player in currentPlayers{
@@ -77,23 +77,23 @@ class ViewController: UIViewController,
         print("I have generated \(Double(arc4random_uniform(9))/100) this random number")
         times += 1
     }
-    func getPlayers() -> [player]{
+    func getPlayers() -> [Player]{
         //Calls the server
         //Pretending to call server
-        let listOfPlayers: [player] = [
-            player.init(playerID: 1, playerName: "Josh", playerType: "Pacman", coordinates: CLLocationCoordinate2DMake(49.280915 + Double(arc4random_uniform(9))/1000, -123.122352 + Double(arc4random_uniform(9))/1000)),
-            player.init(playerID: 2, playerName: "Adam", playerType: "Ghost", coordinates: CLLocationCoordinate2DMake(49.280915 + Double(arc4random_uniform(9))/1000, -123.122352 + Double(arc4random_uniform(9)/10000))),
-            player.init(playerID: 3, playerName: "Sarah", playerType: "Ghost", coordinates: CLLocationCoordinate2DMake(49.280915 + Double(arc4random_uniform(9))/1000, -123.122352 + Double(arc4random_uniform(9)/10000)))
+        let listOfPlayers: [Player] = [
+            Player.init(playerID: "1", playerName: "Josh", playerType: "Pacman", coordinates: CLLocationCoordinate2DMake(49.280915 + Double(arc4random_uniform(9))/1000, -123.122352 + Double(arc4random_uniform(9))/1000)),
+            Player.init(playerID: "2", playerName: "Adam", playerType: "Ghost", coordinates: CLLocationCoordinate2DMake(49.280915 + Double(arc4random_uniform(9))/1000, -123.122352 + Double(arc4random_uniform(9)/10000))),
+            Player.init(playerID: "3", playerName: "Sarah", playerType: "Ghost", coordinates: CLLocationCoordinate2DMake(49.280915 + Double(arc4random_uniform(9))/1000, -123.122352 + Double(arc4random_uniform(9)/10000)))
             ]
         return listOfPlayers
         //Returns a list of aplayer objects
     }
-    /*
+    /**
      * Will check to see if the player has already been drawn
      * Removes the existing player based on the id
      * Redraws them at the new location
      */
-    func drawPlayer(playerInput: player, inout annotationList: [MGLPointAnnotation]){
+    func drawPlayer(playerInput: Player, inout annotationList: [MGLPointAnnotation]){
         
         // Setting up annotation object
         let playerIcon = MGLPointAnnotation()
@@ -140,17 +140,4 @@ class ViewController: UIViewController,
         return annotationImage
     }
     
-}
-class player{
-    var playerID:   Int
-    var playerName: String
-    var playerType: String
-    var coordinates: CLLocationCoordinate2D
-    
-    init(playerID: Int, playerName: String, playerType: String, coordinates: CLLocationCoordinate2D){
-        self.playerID   = playerID
-        self.playerName = playerName
-        self.playerType = playerType
-        self.coordinates = coordinates
-    }
 }
