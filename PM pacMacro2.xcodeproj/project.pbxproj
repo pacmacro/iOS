@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		030C6BB01D68D2D900D6C680 /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 030C6BAF1D68D2D900D6C680 /* Gloss.framework */; };
 		0324C2D01C4FF87100BFAC71 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0324C2CF1C4FF87100BFAC71 /* Settings.bundle */; };
 		033FC5AD1D3499EE008EE3F3 /* Dot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033FC5AC1D3499EE008EE3F3 /* Dot.swift */; };
 		03664CB51D52F9110026BFC9 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03664CB41D52F9110026BFC9 /* Server.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		030C6BAF1D68D2D900D6C680 /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gloss.framework; path = Carthage/Build/iOS/Gloss.framework; sourceTree = "<group>"; };
 		0324C2CF1C4FF87100BFAC71 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		033FC5AC1D3499EE008EE3F3 /* Dot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dot.swift; sourceTree = "<group>"; };
 		03664CB41D52F9110026BFC9 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E532E295BA7D3C0D6890AEE8 /* Pods.framework in Frameworks */,
+				030C6BB01D68D2D900D6C680 /* Gloss.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +165,7 @@
 		EB7D2A2B341810A12385E01B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				030C6BAF1D68D2D900D6C680 /* Gloss.framework */,
 				754A95BD50177663925DBB69 /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -180,6 +184,7 @@
 				03BFA9E71C4FF6DD00D23801 /* Resources */,
 				2FEBBA2F5A29381822AADB35 /* Embed Pods Frameworks */,
 				A05A95708843D7FF01E9460A /* Copy Pods Resources */,
+				030C6BB11D68D2FC00D6C680 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -298,6 +303,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		030C6BB11D68D2FC00D6C680 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Gloss.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "/usr/local/bin/carthage copy-frameworks\n/usr/local/bin/carthage copy-frameworks\n/usr/local/bin/carthage copy-frameworks\n/usr/local/bin/carthage copy-frameworks\n/usr/local/bin/carthage copy-frameworks\n/usr/local/bin/carthage copy-frameworks";
+			shellScript = "";
+		};
 		1A6FA648D582F7DA3B210DE0 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -497,6 +516,10 @@
 			baseConfigurationReference = D0419BDBA4085761931F48FD /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "PM pacMacro2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ctrlshiftgo.PM-pacMacro2";
@@ -509,6 +532,10 @@
 			baseConfigurationReference = 9B34327E246A83D27B256517 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "PM pacMacro2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ctrlshiftgo.PM-pacMacro2";
