@@ -9,18 +9,19 @@
 import UIKit
 import Mapbox
 
-public class Player{
+public class Player {
     var playerID:   String
     var playerName: String
     var playerType: String
     var status : playerStatus
     var coordinates: CLLocationCoordinate2D
     
-    init(playerID: String, playerName: String, playerType: String, coordinates: CLLocationCoordinate2D){
+    init(playerID: String, playerName: String, playerType: String, latitude: Double, longitude: Double){
         self.playerID   = playerID
         self.playerName = playerName
         self.playerType = playerType
-        self.coordinates = coordinates
+        
+        self.coordinates = CLLocationCoordinate2DMake(latitude, longitude)
         self.status = playerStatus.normal
     }
     
