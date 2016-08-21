@@ -15,9 +15,9 @@ public class Dot {
     private var isCollectedBool : Bool
     private var isPowerDot : Bool
     
-    init(id : String, coordinates : CLLocationCoordinate2D, isCollectedBool : Bool, isPowerDot : Bool){
+    init(id : String, latitude : Double, longitude : Double, isCollectedBool : Bool, isPowerDot : Bool){
         self.id = id
-        self.coordinates = coordinates
+        self.coordinates = CLLocationCoordinate2DMake(latitude, longitude)
         self.isCollectedBool = isCollectedBool
         self.isPowerDot = isPowerDot
     }
