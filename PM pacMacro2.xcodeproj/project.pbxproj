@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		030C6BB01D68D2D900D6C680 /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 030C6BAF1D68D2D900D6C680 /* Gloss.framework */; };
 		0324C2D01C4FF87100BFAC71 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0324C2CF1C4FF87100BFAC71 /* Settings.bundle */; };
 		033FC5AD1D3499EE008EE3F3 /* Dot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033FC5AC1D3499EE008EE3F3 /* Dot.swift */; };
 		03664CB51D52F9110026BFC9 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03664CB41D52F9110026BFC9 /* Server.swift */; };
@@ -21,7 +20,6 @@
 		03CCE3B61D16AC5E005D08C4 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CCE3B51D16AC5E005D08C4 /* Game.swift */; };
 		03CCE3B81D16AEA4005D08C4 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CCE3B71D16AEA4005D08C4 /* Player.swift */; };
 		03DF04051C5BCB2200CA678F /* LoginScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DF04041C5BCB2200CA678F /* LoginScreenController.swift */; };
-		E532E295BA7D3C0D6890AEE8 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754A95BD50177663925DBB69 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,8 +70,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E532E295BA7D3C0D6890AEE8 /* Pods.framework in Frameworks */,
-				030C6BB01D68D2D900D6C680 /* Gloss.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,7 +180,6 @@
 				03BFA9E71C4FF6DD00D23801 /* Resources */,
 				2FEBBA2F5A29381822AADB35 /* Embed Pods Frameworks */,
 				A05A95708843D7FF01E9460A /* Copy Pods Resources */,
-				030C6BB11D68D2FC00D6C680 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -303,20 +298,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		030C6BB11D68D2FC00D6C680 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Gloss.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = "/usr/local/bin/carthage copy-frameworks\n/usr/local/bin/carthage copy-frameworks\n/usr/local/bin/carthage copy-frameworks\n/usr/local/bin/carthage copy-frameworks\n/usr/local/bin/carthage copy-frameworks\n/usr/local/bin/carthage copy-frameworks";
-			shellScript = "";
-		};
 		1A6FA648D582F7DA3B210DE0 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
