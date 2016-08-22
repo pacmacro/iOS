@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0324C2D01C4FF87100BFAC71 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0324C2CF1C4FF87100BFAC71 /* Settings.bundle */; };
 		033FC5AD1D3499EE008EE3F3 /* Dot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033FC5AC1D3499EE008EE3F3 /* Dot.swift */; };
+		03664CB51D52F9110026BFC9 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03664CB41D52F9110026BFC9 /* Server.swift */; };
 		03BFA9ED1C4FF6DD00D23801 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BFA9EC1C4FF6DD00D23801 /* AppDelegate.swift */; };
 		03BFA9EF1C4FF6DD00D23801 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03BFA9EE1C4FF6DD00D23801 /* MapViewController.swift */; };
 		03BFA9F21C4FF6DD00D23801 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03BFA9F01C4FF6DD00D23801 /* Main.storyboard */; };
@@ -19,7 +20,6 @@
 		03CCE3B61D16AC5E005D08C4 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CCE3B51D16AC5E005D08C4 /* Game.swift */; };
 		03CCE3B81D16AEA4005D08C4 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CCE3B71D16AEA4005D08C4 /* Player.swift */; };
 		03DF04051C5BCB2200CA678F /* LoginScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DF04041C5BCB2200CA678F /* LoginScreenController.swift */; };
-		E532E295BA7D3C0D6890AEE8 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 754A95BD50177663925DBB69 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		030C6BAF1D68D2D900D6C680 /* Gloss.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gloss.framework; path = Carthage/Build/iOS/Gloss.framework; sourceTree = "<group>"; };
 		0324C2CF1C4FF87100BFAC71 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		033FC5AC1D3499EE008EE3F3 /* Dot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dot.swift; sourceTree = "<group>"; };
+		03664CB41D52F9110026BFC9 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		03BFA9E91C4FF6DD00D23801 /* PM pacMacro2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PM pacMacro2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03BFA9EC1C4FF6DD00D23801 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03BFA9EE1C4FF6DD00D23801 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -68,7 +70,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E532E295BA7D3C0D6890AEE8 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +120,7 @@
 				03BFA9EE1C4FF6DD00D23801 /* MapViewController.swift */,
 				03CCE3B71D16AEA4005D08C4 /* Player.swift */,
 				03CCE3B51D16AC5E005D08C4 /* Game.swift */,
+				03664CB41D52F9110026BFC9 /* Server.swift */,
 				033FC5AC1D3499EE008EE3F3 /* Dot.swift */,
 				03BFA9F01C4FF6DD00D23801 /* Main.storyboard */,
 				03DF04041C5BCB2200CA678F /* LoginScreenController.swift */,
@@ -159,6 +161,7 @@
 		EB7D2A2B341810A12385E01B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				030C6BAF1D68D2D900D6C680 /* Gloss.framework */,
 				754A95BD50177663925DBB69 /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -347,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03664CB51D52F9110026BFC9 /* Server.swift in Sources */,
 				03CCE3B61D16AC5E005D08C4 /* Game.swift in Sources */,
 				03BFA9EF1C4FF6DD00D23801 /* MapViewController.swift in Sources */,
 				03BFA9ED1C4FF6DD00D23801 /* AppDelegate.swift in Sources */,
@@ -493,6 +497,10 @@
 			baseConfigurationReference = D0419BDBA4085761931F48FD /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "PM pacMacro2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ctrlshiftgo.PM-pacMacro2";
@@ -505,6 +513,10 @@
 			baseConfigurationReference = 9B34327E246A83D27B256517 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "PM pacMacro2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ctrlshiftgo.PM-pacMacro2";

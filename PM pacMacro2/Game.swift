@@ -10,10 +10,14 @@ import UIKit
 
 public class Game {
     
-    var players : [Player]
+    static let sharedInstance = Game(players: [], dots: [], currentPlayerType: Player.playerType.ghost)
+    
+    public let gameServer = Server() 
+    
+    private var players : [Player]
     private var dots : [Dot]
     private var currentPlayerType : Player.playerType
-    let pacman : Player
+    private let pacman : Player
     
     
     init(players: [Player], dots : [Dot], currentPlayerType : Player.playerType){
