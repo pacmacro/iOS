@@ -35,4 +35,37 @@ public class Server : NSObject {
         return playerList
     }
     
+    public func getDots() -> [Dot] {
+        var dotList : [Dot] = []
+        do {
+            let requestDotLocations = "/pacdots"
+            
+            let data = NSData(contentsOfURL: NSURL(string: serverip + requestDotLocations)!)
+            
+            let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)
+            
+            for dot in jsonResult as! [Dictionary <String, AnyObject>] {
+                dotList.append(
+                    Dot(id: "", latitude: dot["latitude"] as! Double, longitude: dot["longitude"] as! Double, isCollectedBool: (dot["eaten"] as! String).toBool(), isPowerDot: (dot["powerdot"] as! String).toBool())
+                )
+            }
+        } catch let error as NSError {
+            print(error)
+        }
+        
+        return dotList
+    }
+    
+}
+
+extension String {
+    public func toBool() -> Bool {
+        if self == "false" {
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    
 }
