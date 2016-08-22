@@ -25,7 +25,7 @@ public class Server : NSObject {
             
             for player in jsonResult as! [Dictionary <String, AnyObject>] {
                 playerList.append(
-                    Player(playerID: "", playerName: "", playerType: player["name"] as! String,latitude: 0, longitude: 0)
+                    Player(playerID: "", playerName: "", playerType: player["name"] as! String,latitude: player["latitude"] as! Double, longitude: player["longitude"] as! Double)
                 )
             }
         } catch let error as NSError {
