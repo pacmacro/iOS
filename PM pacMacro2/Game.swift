@@ -12,10 +12,12 @@ public class Game {
     
     static let sharedInstance = Game(players: [], dots: [], currentPlayerType: Player.playerType.ghost)
     
-    var players : [Player]
+    public let gameServer = Server() 
+    
+    private var players : [Player]
     private var dots : [Dot]
     private var currentPlayerType : Player.playerType
-    let pacman : Player
+    private let pacman : Player
     
     
     init(players: [Player], dots : [Dot], currentPlayerType : Player.playerType){
