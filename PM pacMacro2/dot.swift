@@ -9,11 +9,11 @@
 import UIKit
 import Mapbox
 
-public class Dot {
-    private var id : String
-    private var coordinates : CLLocationCoordinate2D
-    private var isCollectedBool : Bool
-    private var isPowerDot : Bool
+open class Dot {
+    fileprivate var id : String
+    fileprivate var coordinates : CLLocationCoordinate2D
+    fileprivate var isCollectedBool : Bool
+    fileprivate var isPowerDot : Bool
     
     init(id : String, latitude : Double, longitude : Double, isCollectedBool : Bool, isPowerDot : Bool){
         self.id = id
@@ -22,15 +22,15 @@ public class Dot {
         self.isPowerDot = isPowerDot
     }
     
-    public func getCoordinates() -> CLLocationCoordinate2D{
+    open func getCoordinates() -> CLLocationCoordinate2D{
         return coordinates
     }
     
-    public func getId() -> String{
+    open func getId() -> String{
         return id
     }
     
-    public func isCollected() -> Bool{
+    open func isCollected() -> Bool{
         return isCollectedBool
     }
     

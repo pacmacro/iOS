@@ -1,3 +1,7 @@
 platform :ios, '8.0'
-pod 'Mapbox-iOS-SDK'
+
 use_frameworks!
+
+target 'PM pacMacro2' do
+  pod 'Mapbox-iOS-SDK'
+end

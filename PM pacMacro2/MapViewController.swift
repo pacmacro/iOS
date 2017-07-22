@@ -5,7 +5,7 @@ class ViewController: UIViewController,
     //Controller for the mapview, i haven't renamed this since it would break a bunch of other elements
     
     var mapView: MGLMapView!
-    var timer: NSTimer = NSTimer()
+    var timer: Timer = Timer()
     var times = 0
     var annotationList: [MGLPointAnnotation] = [] //list of annotations to display on the map
     //Information
@@ -14,11 +14,11 @@ class ViewController: UIViewController,
         super.viewDidLoad()
         
         // initialize the map view
-        mapView = MGLMapView(frame: view.bounds, styleURL: NSURL(string: "mapbox://styles/ctrlshiftgo/cihfgoup600o2jnkx6dhzb3eh"))
-        mapView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        mapView = MGLMapView(frame: view.bounds, styleURL: URL(string: "mapbox://styles/ctrlshiftgo/cihfgoup600o2jnkx6dhzb3eh"))
+        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         // set the map's center coordinate
-        mapView.setCenterCoordinate(CLLocationCoordinate2D(latitude: 49.280915,
+        mapView.setCenter(CLLocationCoordinate2D(latitude: 49.280915,
             longitude: -123.122352),
             zoomLevel: 15, animated: false)
         view.addSubview(mapView)
@@ -30,9 +30,9 @@ class ViewController: UIViewController,
         //Initialize Annotation List
         
         //Call Timer Object
-        timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(ViewController.mapLoop), userInfo: nil, repeats: true )
+        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(ViewController.mapLoop), userInfo: nil, repeats: true )
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         timer.invalidate()
         print("TImer should have been invalidated\n")
     }
@@ -52,11 +52,11 @@ class ViewController: UIViewController,
         //Adding the overlay to the map
         mapView.addAnnotation(tmpOverlay)
     }
-    func mapView(mapView: MGLMapView, alphaForShapeAnnotation annotation: MGLShape) -> CGFloat{
+    func mapView(_ mapView: MGLMapView, alphaForShapeAnnotation annotation: MGLShape) -> CGFloat{
         return 0.5
     }
-    func mapView(mapView: MGLMapView, fillColorForPolygonAnnotation annotation: MGLPolygon) -> UIColor {
-        return UIColor.whiteColor()
+    func mapView(_ mapView: MGLMapView, fillColorForPolygonAnnotation annotation: MGLPolygon) -> UIColor {
+        return UIColor.white
     }
     /*
      * This is the main logic for the map as it is updating
@@ -91,7 +91,7 @@ class ViewController: UIViewController,
      * Removes the existing player based on the id
      * Redraws them at the new location
      */
-    func drawPlayer(playerInput: Player, inout annotationList: [MGLPointAnnotation]){
+    func drawPlayer(_ playerInput: Player, annotationList: inout [MGLPointAnnotation]){
         
         // Setting up annotation object
         let playerIcon = MGLPointAnnotation()
@@ -115,7 +115,7 @@ class ViewController: UIViewController,
         }
     }
     // Removes all existing annotations and replaces them to update coordinates
-    func redrawAnnotations(annotationList: [MGLPointAnnotation]){
+    func redrawAnnotations(_ annotationList: [MGLPointAnnotation]){
         
         mapView.removeAnnotations(annotationList)
         mapView.addAnnotations(annotationList)
@@ -123,13 +123,13 @@ class ViewController: UIViewController,
     }
     
     /// Delegate function to set images for annotations. Will set the image based on the title of the annotation.
-    func mapView(mapView: MGLMapView, imageForAnnotation annotation: MGLAnnotation) -> MGLAnnotationImage?{
+    func mapView(_ mapView: MGLMapView, imageFor annotation: MGLAnnotation) -> MGLAnnotationImage?{
         var imageName = "";
         // Unwrap the annotation subtitle
         if let iconType : String = annotation.subtitle! {
             imageName = iconType;
         }
-        var annotationImage = mapView.dequeueReusableAnnotationImageWithIdentifier(imageName)
+        var annotationImage = mapView.dequeueReusableAnnotationImage(withIdentifier: imageName)
         let playerName : String = annotation.title!!
         if annotationImage == nil {
             let image = UIImage(named: imageName)

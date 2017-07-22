@@ -8,16 +8,16 @@
 
 import UIKit
 
-public class Game {
+open class Game {
     
     static let sharedInstance = Game(players: [], dots: [], currentPlayerType: Player.playerType.ghost)
     
-    public let gameServer = Server() 
+    open let gameServer = Server() 
     
-    private var players : [Player]
-    private var dots : [Dot]
-    private var currentPlayerType : Player.playerType
-    private let pacman : Player
+    fileprivate var players : [Player]
+    fileprivate var dots : [Dot]
+    fileprivate var currentPlayerType : Player.playerType
+    fileprivate let pacman : Player
     
     
     init(players: [Player], dots : [Dot], currentPlayerType : Player.playerType){
@@ -27,7 +27,7 @@ public class Game {
         pacman = players.filter({$0.playerType == "pacman"})[0]
     }
     
-    public func getVisiblePlayers() -> [Player]{
+    open func getVisiblePlayers() -> [Player]{
         switch currentPlayerType {
         case Player.playerType.pacmanViewer:
             // Player can see everyone
@@ -48,11 +48,11 @@ public class Game {
         }
     }
     
-    public func getVisibleDots() -> [Dot]{
+    open func getVisibleDots() -> [Dot]{
         return dots.filter({!$0.isCollected()})
     }
     
-    public func updateFromServer(){
+    open func updateFromServer(){
         // TODO: Implement
     }
 

@@ -20,6 +20,7 @@
 		03CCE3B61D16AC5E005D08C4 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CCE3B51D16AC5E005D08C4 /* Game.swift */; };
 		03CCE3B81D16AEA4005D08C4 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CCE3B71D16AEA4005D08C4 /* Player.swift */; };
 		03DF04051C5BCB2200CA678F /* LoginScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DF04041C5BCB2200CA678F /* LoginScreenController.swift */; };
+		E220E1FBCFF59D111E410963 /* Pods_PM_pacMacro2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFAE831A4181A1EF406ABED0 /* Pods_PM_pacMacro2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,9 +61,10 @@
 		03CCE3B51D16AC5E005D08C4 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		03CCE3B71D16AEA4005D08C4 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		03DF04041C5BCB2200CA678F /* LoginScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginScreenController.swift; sourceTree = "<group>"; };
+		5433F0B96CD71FB71A0641C7 /* Pods-PM pacMacro2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PM pacMacro2.release.xcconfig"; path = "Pods/Target Support Files/Pods-PM pacMacro2/Pods-PM pacMacro2.release.xcconfig"; sourceTree = "<group>"; };
 		754A95BD50177663925DBB69 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B34327E246A83D27B256517 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		D0419BDBA4085761931F48FD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		A47A2C2D065387D413EAA390 /* Pods-PM pacMacro2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PM pacMacro2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PM pacMacro2/Pods-PM pacMacro2.debug.xcconfig"; sourceTree = "<group>"; };
+		AFAE831A4181A1EF406ABED0 /* Pods_PM_pacMacro2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PM_pacMacro2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E220E1FBCFF59D111E410963 /* Pods_PM_pacMacro2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,8 +100,8 @@
 				03BFAA001C4FF6DD00D23801 /* PM pacMacro2Tests */,
 				03BFAA0B1C4FF6DD00D23801 /* PM pacMacro2UITests */,
 				03BFA9EA1C4FF6DD00D23801 /* Products */,
-				5C838B54D44F27FAD7789320 /* Pods */,
 				EB7D2A2B341810A12385E01B /* Frameworks */,
+				AD4891251DD833B51C0A7228 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,11 +152,11 @@
 			path = "PM pacMacro2UITests";
 			sourceTree = "<group>";
 		};
-		5C838B54D44F27FAD7789320 /* Pods */ = {
+		AD4891251DD833B51C0A7228 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D0419BDBA4085761931F48FD /* Pods.debug.xcconfig */,
-				9B34327E246A83D27B256517 /* Pods.release.xcconfig */,
+				A47A2C2D065387D413EAA390 /* Pods-PM pacMacro2.debug.xcconfig */,
+				5433F0B96CD71FB71A0641C7 /* Pods-PM pacMacro2.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			children = (
 				030C6BAF1D68D2D900D6C680 /* Gloss.framework */,
 				754A95BD50177663925DBB69 /* Pods.framework */,
+				AFAE831A4181A1EF406ABED0 /* Pods_PM_pacMacro2.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -174,12 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03BFAA111C4FF6DD00D23801 /* Build configuration list for PBXNativeTarget "PM pacMacro2" */;
 			buildPhases = (
-				1A6FA648D582F7DA3B210DE0 /* Check Pods Manifest.lock */,
+				E83EAF18910CDB3993E284AC /* [CP] Check Pods Manifest.lock */,
 				03BFA9E51C4FF6DD00D23801 /* Sources */,
 				03BFA9E61C4FF6DD00D23801 /* Frameworks */,
 				03BFA9E71C4FF6DD00D23801 /* Resources */,
-				2FEBBA2F5A29381822AADB35 /* Embed Pods Frameworks */,
-				A05A95708843D7FF01E9460A /* Copy Pods Resources */,
+				F00154E206CAF7803A90C235 /* [CP] Embed Pods Frameworks */,
+				0EA202B8C78ED635CBEC51F3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -233,18 +237,21 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Josh Wu";
 				TargetAttributes = {
 					03BFA9E81C4FF6DD00D23801 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0830;
 					};
 					03BFA9FC1C4FF6DD00D23801 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0830;
 						TestTargetID = 03BFA9E81C4FF6DD00D23801;
 					};
 					03BFAA071C4FF6DD00D23801 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0830;
 						TestTargetID = 03BFA9E81C4FF6DD00D23801;
 					};
 				};
@@ -298,49 +305,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1A6FA648D582F7DA3B210DE0 /* Check Pods Manifest.lock */ = {
+		0EA202B8C78ED635CBEC51F3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PM pacMacro2/Pods-PM pacMacro2-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2FEBBA2F5A29381822AADB35 /* Embed Pods Frameworks */ = {
+		E83EAF18910CDB3993E284AC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		A05A95708843D7FF01E9460A /* Copy Pods Resources */ = {
+		F00154E206CAF7803A90C235 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PM pacMacro2/Pods-PM pacMacro2-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -424,8 +431,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -468,8 +477,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -488,13 +499,14 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		03BFAA121C4FF6DD00D23801 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D0419BDBA4085761931F48FD /* Pods.debug.xcconfig */;
+			baseConfigurationReference = A47A2C2D065387D413EAA390 /* Pods-PM pacMacro2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -505,12 +517,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ctrlshiftgo.PM-pacMacro2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		03BFAA131C4FF6DD00D23801 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9B34327E246A83D27B256517 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 5433F0B96CD71FB71A0641C7 /* Pods-PM pacMacro2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -521,6 +534,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ctrlshiftgo.PM-pacMacro2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -532,6 +546,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ctrlshiftgo.PM-pacMacro2Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PM pacMacro2.app/PM pacMacro2";
 			};
 			name = Debug;
@@ -544,6 +559,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ctrlshiftgo.PM-pacMacro2Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PM pacMacro2.app/PM pacMacro2";
 			};
 			name = Release;
@@ -555,6 +571,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ctrlshiftgo.PM-pacMacro2UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "PM pacMacro2";
 				USES_XCTRUNNER = YES;
 			};
@@ -567,6 +584,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ctrlshiftgo.PM-pacMacro2UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "PM pacMacro2";
 				USES_XCTRUNNER = YES;
 			};

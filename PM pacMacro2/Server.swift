@@ -8,20 +8,20 @@
 
 import Foundation
 
-public class Server : NSObject {
+open class Server : NSObject {
     static let sharedInstance = Server()
     
-    private var serverip : String = "http://pacmacro.herokuapp.com/"
-    private var lastConnectionTime : NSDate = NSDate()
+    fileprivate var serverip : String = "http://pacmacro.herokuapp.com/"
+    fileprivate var lastConnectionTime : Date = Date()
 
-    public func getAllPlayerDetails() -> [Player] {
+    open func getAllPlayerDetails() -> [Player] {
         var playerList : [Player] = []
         do{
             
             let requestPlayerDetails : String = "/player/details"
             
-            let data = NSData(contentsOfURL: NSURL(string: serverip + requestPlayerDetails)!)
-            let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)
+            let data = try? Data(contentsOf: URL(string: serverip + requestPlayerDetails)!)
+            let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers)
             
             for player in jsonResult as! [Dictionary <String, AnyObject>] {
                 playerList.append(
@@ -35,14 +35,14 @@ public class Server : NSObject {
         return playerList
     }
     
-    public func getDots() -> [Dot] {
+    open func getDots() -> [Dot] {
         var dotList : [Dot] = []
         do {
             let requestDotLocations = "/pacdots"
             
-            let data = NSData(contentsOfURL: NSURL(string: serverip + requestDotLocations)!)
+            let data = try? Data(contentsOf: URL(string: serverip + requestDotLocations)!)
             
-            let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers)
+            let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers)
             
             for dot in jsonResult as! [Dictionary <String, AnyObject>] {
                 dotList.append(

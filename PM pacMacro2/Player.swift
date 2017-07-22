@@ -9,7 +9,7 @@
 import UIKit
 import Mapbox
 
-public class Player {
+open class Player {
     var playerID:   String
     var playerName: String
     var playerType: String
@@ -26,7 +26,7 @@ public class Player {
     }
     
     
-    public func setCaptured() -> Bool{
+    open func setCaptured() -> Bool{
         if(status == playerStatus.captured || status == playerStatus.redPellet){
             return false
         }
@@ -36,14 +36,14 @@ public class Player {
         }
     }
     
-    public func isCaptured() -> Bool{
+    open func isCaptured() -> Bool{
         if(status == playerStatus.captured){
             return true
         }
         return false
     }
     
-    public func isRedPelleted() -> Bool{
+    open func isRedPelleted() -> Bool{
         if(status == playerStatus.redPellet){
             return true
         }
