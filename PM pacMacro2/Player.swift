@@ -12,56 +12,77 @@ import Mapbox
 open class Player {
     var playerID:   String
     var playerName: String
-    var playerType: String
-    var status : playerStatus
+    var playerType: Player.PlayerType
+    var status : PlayerStatus
     var coordinates: CLLocationCoordinate2D
     
-    init(playerID: String, playerName: String, playerType: String, latitude: Double, longitude: Double){
+    init(playerID: String, playerName: String, playerType: Player.PlayerType, latitude: Double?, longitude: Double?, playerStatus: PlayerStatus){
         self.playerID   = playerID
         self.playerName = playerName
         self.playerType = playerType
         
-        self.coordinates = CLLocationCoordinate2DMake(latitude, longitude)
-        self.status = playerStatus.normal
+        if(latitude != nil && longitude != nil) {
+            self.coordinates = CLLocationCoordinate2DMake(latitude!, longitude!)
+            self.status = PlayerStatus.ready
+        }
+        else {
+            self.coordinates = CLLocationCoordinate2DMake(0, 0)
+            self.status = Player.PlayerStatus.uninitialized
+        }
+
     }
     
+    // empty initializer
+    init(){
+        self.playerID = ""
+        self.playerName = ""
+        self.playerType = Player.PlayerType.pacman
+        self.status = Player.PlayerStatus.ready
+        self.coordinates = CLLocationCoordinate2DMake(0, 0)
+    }
     
     open func setCaptured() -> Bool{
-        if(status == playerStatus.captured || status == playerStatus.redPellet){
+        if(status == PlayerStatus.captured || status == PlayerStatus.powerup){
             return false
         }
         else {
-            status = playerStatus.captured
+            status = PlayerStatus.captured
             return true
         }
     }
     
+    open func setCoordinates(lat: Double, long: Double){
+        self.coordinates = CLLocationCoordinate2DMake(lat, long)
+    }
+    
     open func isCaptured() -> Bool{
-        if(status == playerStatus.captured){
+        if(status == PlayerStatus.captured){
             return true
         }
         return false
     }
     
     open func isRedPelleted() -> Bool{
-        if(status == playerStatus.redPellet){
+        if(status == PlayerStatus.powerup){
             return true
         }
         return false
     }
     
-    public enum playerStatus{
+    public enum PlayerStatus: String{
         
-        case normal
-        case captured
-        case redPellet
+        case ready = "READY"
+        case captured = "CAPTURED"
+        case uninitialized = "UNINITIALIZED"
+        case active = "ACTIVE"
+        case powerup = "POWERUP"
     }
     
-    public enum playerType{
-        
-        case ghostViewer
-        case pacmanViewer
-        case ghost
-        case pacman
+    public enum PlayerType: String{
+        case pacman = "Pacman"
+        case blinky = "Blinky"
+        case inky = "Inky"
+        case pinky = "Pinky"
+        case clyde = "Clyde"
     }
 }

@@ -8,6 +8,10 @@ class ViewController: UIViewController,
     var timer: Timer = Timer()
     var times = 0
     var annotationList: [MGLPointAnnotation] = [] //list of annotations to display on the map
+    let gameInstance = Game()
+    
+    var currentPlayers: [Player] = []
+    var currentDots: [Dot] = []
     //Information
 
     override func viewDidLoad() {
@@ -64,25 +68,31 @@ class ViewController: UIViewController,
      * Calls functions to get data from the server and calls draw player on each
      */
     func mapLoop(){
+        // Update from server
+        gameInstance.updateServer()
         //Initializing and setup
-        var currentPlayers: [Player] = getPlayers()
+        currentDots = gameInstance.getVisibleDots()
         currentPlayers = getPlayers()
         //Update Player locations on map
         for player in currentPlayers{
             drawPlayer(player, annotationList: &annotationList)
         }
+        for dot in currentDots {
+            drawDot(dot, annotationList: &annotationList)
+        }
         redrawAnnotations(annotationList)
         //Counter for times this has looped
         print("I have waited \(times) cycles")
-        print("I have generated \(Double(arc4random_uniform(9))/100) this random number")
         times += 1
     }
     func getPlayers() -> [Player]{
         //Calls the server
+        let listOfPlayers: [Player] = gameInstance.getVisiblePlayers()
         //Pretending to call server
-        let listOfPlayers: [Player] = [
-            Player.init(playerID: "1", playerName: "Josh", playerType: "Pacman", latitude: 0,longitude: 0)
-            ]
+        // TODO remove this
+//        let listOfPlayers: [Player] = [
+//            Player.init(playerID: "1", playerName: "Josh", playerType: Player.playerType(rawValue: "Pacman")!, latitude: 49.280915, longitude: -123.122352)
+//            ]
         return listOfPlayers
         //Returns a list of aplayer objects
     }
@@ -96,14 +106,14 @@ class ViewController: UIViewController,
         // Setting up annotation object
         let playerIcon = MGLPointAnnotation()
         playerIcon.coordinate = playerInput.coordinates
-        playerIcon.title = playerInput.playerType + "-" + playerInput.playerName
-        playerIcon.subtitle = playerInput.playerType
+        playerIcon.title = playerInput.playerType.rawValue + "-" + playerInput.playerName
+        // playerIcon.subtitle = playerInput.playerType
                 
         //Check for player already existing on the screen
         var annotationExists: Bool = false
         for annotation in annotationList {
             
-            if annotation.title == playerInput.playerType + "-" + playerInput.playerName {
+            if annotation.title == playerInput.playerType.rawValue + "-" + playerInput.playerName {
                 
                 annotationExists = true
                 annotation.coordinate = playerInput.coordinates
@@ -114,6 +124,10 @@ class ViewController: UIViewController,
             annotationList.append(playerIcon)
         }
     }
+    func drawDot(_ dotInput: Dot, annotationList: inout [MGLPointAnnotation]){
+        
+    }
+    
     // Removes all existing annotations and replaces them to update coordinates
     func redrawAnnotations(_ annotationList: [MGLPointAnnotation]){
         

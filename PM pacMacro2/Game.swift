@@ -10,41 +10,60 @@ import UIKit
 
 open class Game {
     
-    static let sharedInstance = Game(players: [], dots: [], currentPlayerType: Player.playerType.ghost)
+    // TODO Fix this
+    // static let sharedInstance = Game(players: [], dots: [], currentPlayer: Void)
     
     open let gameServer = Server() 
     
-    fileprivate var players : [Player]
-    fileprivate var dots : [Dot]
-    fileprivate var currentPlayerType : Player.playerType
-    fileprivate let pacman : Player
+    public var players : [Player]
+    public var dots : [Dot]
+    public var currentPlayer: Player?
+    public var viewerState: Viewer
+    public let pacman : Player
     
+    public enum Viewer: String {
+        case pacmanViewer = "PacmanViewer"
+        case ghostViewer = "GhostViewer"
+        case player = "Player"
+    }
     
-    init(players: [Player], dots : [Dot], currentPlayerType : Player.playerType){
+    // Default constructor, connects to server
+    init(){
+        self.players = gameServer.getAllPlayerDetails()
+        self.dots = gameServer.getDots()
+        // TODO fix initialization
+        self.currentPlayer = Player(playerID: "", playerName: "", playerType: Player.PlayerType.pacman, latitude: 0, longitude: 0, playerStatus: Player.PlayerStatus.active )
+        self.pacman = players.filter({$0.playerType == Player.PlayerType.pacman})[0]
+        self.viewerState = Viewer.player
+    }
+    
+    init(players: [Player], dots : [Dot], currentPlayer : Player, viewerState: Viewer){
         self.players = players
         self.dots = dots
-        self.currentPlayerType = currentPlayerType
-        pacman = players.filter({$0.playerType == "pacman"})[0]
+        self.currentPlayer = currentPlayer
+        self.pacman = players.filter({$0.playerType == Player.PlayerType.pacman})[0]
+        self.viewerState = viewerState
     }
     
     open func getVisiblePlayers() -> [Player]{
-        switch currentPlayerType {
-        case Player.playerType.pacmanViewer:
-            // Player can see everyone
+        switch viewerState {
+        case Viewer.pacmanViewer:
+            // Viewer can see everyone
             return players
             
-        case Player.playerType.ghostViewer:
+        case Viewer.ghostViewer:
             if( pacman.isCaptured() || pacman.isRedPelleted() ){
-                // Player can see everyone
+                // Viewer can see everyone
                 return players
             } else {
-                // Player can see ghosts
-                let playersSansPacman = players.filter({$0.playerType != "pacman"})
+                // Viewer can see ghosts
+                let playersSansPacman = players.filter({$0.playerType != Player.PlayerType.pacman})
                 return playersSansPacman
             }
         default:
             let emptyPlayers : [Player] = []
             return emptyPlayers
+            // TODO add current location marker
         }
     }
     
@@ -52,8 +71,11 @@ open class Game {
         return dots.filter({!$0.isCollected()})
     }
     
-    open func updateFromServer(){
+    open func updateServer(){
         // TODO: Implement
+        self.dots = gameServer.getDots()
+        self.players = gameServer.getAllPlayerDetails()
+        gameServer.putLocation(currentPlayer: currentPlayer!)
     }
 
 }
