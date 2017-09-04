@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,68 +21,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xhT-BV-f5g">
-                                <rect key="frame" x="16" y="297" width="343" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Server" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9N4-e2-keM">
-                                <rect key="frame" x="16" y="353" width="285" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="ChI-UW-96E">
-                                <rect key="frame" x="16" y="235" width="343" height="29"/>
-                                <segments>
-                                    <segment title="PacPerson"/>
-                                    <segment title="Ghost"/>
-                                    <segment title="Viewer"/>
-                                </segments>
-                                <connections>
-                                    <action selector="gameModeValueChanged:" destination="3jt-q4-dmf" eventType="valueChanged" id="S6l-CL-y8Z"/>
-                                </connections>
-                            </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUB-1t-2Bu">
-                                <rect key="frame" x="309" y="352" width="50" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="chA-Q5-4Wc"/>
-                                </constraints>
-                                <state key="normal" title="Default"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTP-o1-iFH">
-                                <rect key="frame" x="16" y="617" width="44" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTP-o1-iFH">
+                                <rect key="frame" x="127" y="617" width="44" height="30"/>
                                 <state key="normal" title="Admin"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EZ-ux-wna">
-                                <rect key="frame" x="168.5" y="425" width="38" height="30"/>
+                                <rect key="frame" x="169" y="425" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginClicked:" destination="3jt-q4-dmf" eventType="touchUpInside" id="TAF-bL-EY0"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YTB-jt-Vzd">
+                                <rect key="frame" x="0.0" y="150" width="375" height="216"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="9N4-e2-keM" firstAttribute="leading" secondItem="xhT-BV-f5g" secondAttribute="leading" id="9as-BP-OXf"/>
+                            <constraint firstItem="YTB-jt-Vzd" firstAttribute="top" secondItem="rrP-01-VwL" secondAttribute="bottom" constant="86" id="0VM-Uk-Y8Z"/>
+                            <constraint firstItem="YTB-jt-Vzd" firstAttribute="leading" secondItem="S9p-cI-6Yt" secondAttribute="leading" id="Axx-Tr-60c"/>
                             <constraint firstAttribute="bottom" secondItem="eTP-o1-iFH" secondAttribute="bottom" constant="20" symbolic="YES" id="FXh-Vf-wxh"/>
-                            <constraint firstItem="ChI-UW-96E" firstAttribute="leading" secondItem="xhT-BV-f5g" secondAttribute="leading" id="I4s-Bg-Fgt"/>
-                            <constraint firstItem="xhT-BV-f5g" firstAttribute="top" secondItem="ChI-UW-96E" secondAttribute="bottom" constant="34" id="QZe-HY-jpE"/>
-                            <constraint firstItem="ChI-UW-96E" firstAttribute="leading" secondItem="S9p-cI-6Yt" secondAttribute="leadingMargin" id="UCO-di-zex"/>
-                            <constraint firstItem="aUB-1t-2Bu" firstAttribute="leading" secondItem="9N4-e2-keM" secondAttribute="trailing" constant="8" symbolic="YES" id="Vdw-uH-cwN"/>
+                            <constraint firstItem="YTB-jt-Vzd" firstAttribute="centerX" secondItem="8EZ-ux-wna" secondAttribute="centerX" id="MNO-lz-Dn5"/>
                             <constraint firstItem="8EZ-ux-wna" firstAttribute="centerX" secondItem="S9p-cI-6Yt" secondAttribute="centerX" id="VwU-Ek-FqZ"/>
-                            <constraint firstItem="9N4-e2-keM" firstAttribute="baseline" secondItem="aUB-1t-2Bu" secondAttribute="baseline" id="ZKx-aq-poh"/>
-                            <constraint firstItem="eTP-o1-iFH" firstAttribute="leading" secondItem="9N4-e2-keM" secondAttribute="leading" id="aNe-GT-zTi"/>
-                            <constraint firstItem="8EZ-ux-wna" firstAttribute="centerX" secondItem="xhT-BV-f5g" secondAttribute="centerX" id="d0F-Zs-wek"/>
-                            <constraint firstItem="aUB-1t-2Bu" firstAttribute="top" secondItem="xhT-BV-f5g" secondAttribute="bottom" constant="25" id="e7p-gL-EUw"/>
-                            <constraint firstItem="xhT-BV-f5g" firstAttribute="trailing" secondItem="ChI-UW-96E" secondAttribute="trailing" id="heF-oa-e8c"/>
-                            <constraint firstItem="ChI-UW-96E" firstAttribute="top" secondItem="rrP-01-VwL" secondAttribute="bottom" constant="171" id="kBh-qn-f1v"/>
-                            <constraint firstItem="xhT-BV-f5g" firstAttribute="trailing" secondItem="aUB-1t-2Bu" secondAttribute="trailing" id="lPe-xZ-JZg"/>
-                            <constraint firstItem="8EZ-ux-wna" firstAttribute="top" secondItem="9N4-e2-keM" secondAttribute="bottom" constant="42" id="z2h-HL-iF6"/>
+                            <constraint firstItem="8EZ-ux-wna" firstAttribute="top" secondItem="YTB-jt-Vzd" secondAttribute="bottom" constant="59" id="kKY-va-OKb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gNS-R2-N4R"/>
                     <connections>
-                        <outlet property="gameModeSegmentedControl" destination="ChI-UW-96E" id="cyc-Z9-MF2"/>
+                        <outlet property="gameModePicker" destination="YTB-jt-Vzd" id="E1v-9O-J2M"/>
                         <outlet property="loginButton" destination="8EZ-ux-wna" id="hcp-hE-vHb"/>
                         <segue destination="BYZ-38-t0r" kind="showDetail" identifier="toMapView" id="cGm-Tg-aGo"/>
                     </connections>

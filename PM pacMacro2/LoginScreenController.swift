@@ -8,12 +8,14 @@
 
 import UIKit
 
-class LoginScreenController: UIViewController {
+class LoginScreenController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        gameModePicker.dataSource = self
+        gameModePicker.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,7 +23,36 @@ class LoginScreenController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    var currentPlayerType = Player.PlayerType.viewer
+    let serverInstance = Server()
+    
+    // Delegates for gameModePicker
+    let pickerOptions = [
+        "Team Pacman",
+        "Team Ghosts",
+        "Blinky (Red Ghost)",
+        "Pinky (Pink Ghost)",
+        "Inky (Blue Ghost)",
+        "Clyde (Orange Ghost)"
+    ]
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerOptions.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerOptions[row]
+    }
+    func selectedRow(inComponent: Int) -> String{
+        return pickerOptions[inComponent]
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print(pickerOptions[row])
+    }
+    
+    @IBOutlet weak var gameModePicker: UIPickerView!
+    
     /*
     // MARK: - Navigation
 
@@ -36,7 +67,6 @@ class LoginScreenController: UIViewController {
     // TODO Check if selection is valid
     // No other player has taken selected viewer
     @IBAction func loginClicked(_ sender: UIButton) {
-        
         self.performSegue(withIdentifier: "toMapView", sender: self)
     }
 }
