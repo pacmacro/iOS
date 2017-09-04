@@ -31,5 +31,12 @@ class LoginScreenController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    @IBOutlet weak var loginButton: UIButton!
+    // TODO Check if selection is valid
+    // No other player has taken selected viewer
+    @IBAction func loginClicked(_ sender: UIButton) {
+        
+        self.performSegue(withIdentifier: "toMapView", sender: self)
+    }
 }

@@ -39,6 +39,9 @@
                                     <segment title="Ghost"/>
                                     <segment title="Viewer"/>
                                 </segments>
+                                <connections>
+                                    <action selector="gameModeValueChanged:" destination="3jt-q4-dmf" eventType="valueChanged" id="S6l-CL-y8Z"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUB-1t-2Bu">
                                 <rect key="frame" x="309" y="352" width="50" height="30"/>
@@ -55,7 +58,7 @@
                                 <rect key="frame" x="168.5" y="425" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="ugY-Z3-eZQ"/>
+                                    <action selector="loginClicked:" destination="3jt-q4-dmf" eventType="touchUpInside" id="TAF-bL-EY0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -79,6 +82,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gNS-R2-N4R"/>
+                    <connections>
+                        <outlet property="gameModeSegmentedControl" destination="ChI-UW-96E" id="cyc-Z9-MF2"/>
+                        <outlet property="loginButton" destination="8EZ-ux-wna" id="hcp-hE-vHb"/>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="toMapView" id="cGm-Tg-aGo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WkW-fX-1EO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -98,7 +106,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mqS-9W-mVl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-987" y="467"/>
+            <point key="canvasLocation" x="-972" y="447"/>
         </scene>
         <!--Map Screen-->
         <scene sceneID="tne-QT-ifu">
