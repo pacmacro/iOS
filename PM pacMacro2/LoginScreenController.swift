@@ -86,6 +86,12 @@ class LoginScreenController: UIViewController, UIPickerViewDataSource, UIPickerV
     // TODO Check if selection is valid
     // No other player has taken selected viewer
     @IBAction func loginClicked(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "toMapView", sender: self)
+        if(currentPlayerType == Player.PlayerType.pacViewer || currentPlayerType == Player.PlayerType.ghostViewer){
+            self.performSegue(withIdentifier: "toMapView", sender: self)
+        }
+        else{
+            // TODO Implement tag view
+            self.performSegue(withIdentifier: "toTagView", sender: self)
+        }
     }
 }

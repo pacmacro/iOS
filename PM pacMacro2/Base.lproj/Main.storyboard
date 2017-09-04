@@ -21,36 +21,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTP-o1-iFH">
-                                <rect key="frame" x="127" y="617" width="44" height="30"/>
-                                <state key="normal" title="Admin"/>
-                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YTB-jt-Vzd">
+                                <rect key="frame" x="0.0" y="150" width="375" height="216"/>
+                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EZ-ux-wna">
-                                <rect key="frame" x="169" y="425" width="38" height="30"/>
+                                <rect key="frame" x="168" y="421" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginClicked:" destination="3jt-q4-dmf" eventType="touchUpInside" id="TAF-bL-EY0"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YTB-jt-Vzd">
-                                <rect key="frame" x="0.0" y="150" width="375" height="216"/>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="YTB-jt-Vzd" firstAttribute="top" secondItem="rrP-01-VwL" secondAttribute="bottom" constant="86" id="0VM-Uk-Y8Z"/>
+                            <constraint firstItem="8EZ-ux-wna" firstAttribute="top" secondItem="YTB-jt-Vzd" secondAttribute="bottom" constant="55" id="52U-Cf-1Ql"/>
                             <constraint firstItem="YTB-jt-Vzd" firstAttribute="leading" secondItem="S9p-cI-6Yt" secondAttribute="leading" id="Axx-Tr-60c"/>
-                            <constraint firstAttribute="bottom" secondItem="eTP-o1-iFH" secondAttribute="bottom" constant="20" symbolic="YES" id="FXh-Vf-wxh"/>
-                            <constraint firstItem="YTB-jt-Vzd" firstAttribute="centerX" secondItem="8EZ-ux-wna" secondAttribute="centerX" id="MNO-lz-Dn5"/>
-                            <constraint firstItem="8EZ-ux-wna" firstAttribute="centerX" secondItem="S9p-cI-6Yt" secondAttribute="centerX" id="VwU-Ek-FqZ"/>
-                            <constraint firstItem="8EZ-ux-wna" firstAttribute="top" secondItem="YTB-jt-Vzd" secondAttribute="bottom" constant="59" id="kKY-va-OKb"/>
+                            <constraint firstItem="8EZ-ux-wna" firstAttribute="centerX" secondItem="S9p-cI-6Yt" secondAttribute="centerX" id="UWs-P0-HRw"/>
+                            <constraint firstItem="8EZ-ux-wna" firstAttribute="centerX" secondItem="YTB-jt-Vzd" secondAttribute="centerX" id="xV6-Sl-iGK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gNS-R2-N4R"/>
                     <connections>
                         <outlet property="gameModePicker" destination="YTB-jt-Vzd" id="E1v-9O-J2M"/>
                         <outlet property="loginButton" destination="8EZ-ux-wna" id="hcp-hE-vHb"/>
-                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="toMapView" id="cGm-Tg-aGo"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toMapView" action="showDetailViewController:sender:" id="cGm-Tg-aGo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WkW-fX-1EO" userLabel="First Responder" sceneMemberID="firstResponder"/>
