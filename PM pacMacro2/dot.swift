@@ -22,6 +22,34 @@ open class Dot {
         self.isPowerDot = isPowerDot
     }
     
+    init(){
+        self.id = ""
+        self.coordinates = CLLocationCoordinate2DMake(0, 0)
+        self.isCollectedBool = false
+        self.isPowerDot = false
+    }
+    
+    open func setCoordinates(lat: Double, long: Double){
+        self.coordinates = CLLocationCoordinate2DMake(lat, long)
+    }
+    open func setEaten(isEaten: String){
+        if isEaten == "true"{
+            self.isCollectedBool = true
+        }
+        else {
+            self.isCollectedBool = false
+        }
+        
+    }
+    open func setPowerDot(isPowerDot: String){
+        if isPowerDot == "true" {
+            self.isPowerDot = true
+        }
+        else {
+            self.isPowerDot = false
+        }
+    }
+    
     open func getCoordinates() -> CLLocationCoordinate2D{
         return coordinates
     }

@@ -48,7 +48,8 @@ open class Server : NSObject {
                     playerList.append(newPlayer)
                 }
             }
-        } catch let error as NSError {
+        }
+        catch let error as NSError {
             print(error)
         }
         
@@ -59,21 +60,25 @@ open class Server : NSObject {
         var dotList : [Dot] = []
         do {
             let requestDotLocations = "/pacdots"
-            
             let data = try? Data(contentsOf: URL(string: serverip + requestDotLocations)!)
-            
-            let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers)
-            
-            for dot in jsonResult as! [Dictionary <String, AnyObject>] {
-                dotList.append(
-                    Dot(id: "", latitude: dot["latitude"] as! Double,
-                        longitude: dot["longitude"] as! Double,
-                        isCollectedBool: (dot["eaten"] as! String).toBool(),
-                        isPowerDot: (dot["powerdot"] as! String).toBool()
-                    )
-                )
+            if let jsonResult = try JSONSerialization.jsonObject(with: data!) as? [[String: Any]]{
+                for dot in jsonResult{
+                    let newDot = Dot()
+                    if let location = dot["location"] as? [String: Any],
+                    let eaten = dot["eaten"] as? String,
+                        let powerdot = dot["powerdot"] as? String {
+                        if let lat = location["latitude"] as? Double,
+                            let long = location["Longitude"] as? Double{
+                            newDot.setCoordinates(lat: lat, long: long)
+                            newDot.setPowerDot(isPowerDot: powerdot)
+                            newDot.setEaten(isEaten: eaten)
+                        }
+                    }
+                dotList.append(newDot)
+                }
             }
-        } catch let error as NSError {
+        }
+        catch let error as NSError {
             print(error)
         }
         
@@ -84,8 +89,8 @@ open class Server : NSObject {
         // TODO
         // Sends current location to server
         do {
-            let putLocation = "/player/{player_name}/location"
-            let data = try? Data(contentsOf: URL(string: serverip + putLocation)!)
+//            let putLocation = "/player/{player_name}/location"
+//            let data = try? Data(contentsOf: URL(string: serverip + putLocation)!)
             
         } catch let error as NSError {
             print(error)
