@@ -84,5 +84,6 @@ open class Player {
         case inky = "Inky"
         case pinky = "Pinky"
         case clyde = "Clyde"
+        case viewer = "Viewer"
     }
 }
