@@ -23,13 +23,14 @@ class LoginScreenController: UIViewController, UIPickerViewDataSource, UIPickerV
         // Dispose of any resources that can be recreated.
     }
     
-    var currentPlayerType = Player.PlayerType.viewer
+    var currentPlayerType = Player.PlayerType.pacViewer
     let serverInstance = Server()
     
     // Delegates for gameModePicker
     let pickerOptions = [
         "Team Pacman",
         "Team Ghosts",
+        "Pacman",
         "Blinky (Red Ghost)",
         "Pinky (Pink Ghost)",
         "Inky (Blue Ghost)",
@@ -49,6 +50,24 @@ class LoginScreenController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         print(pickerOptions[row])
+        switch row {
+        case 0:
+            currentPlayerType = Player.PlayerType.pacViewer
+        case 1:
+            currentPlayerType = Player.PlayerType.ghostViewer
+        case 2:
+            currentPlayerType = Player.PlayerType.pacman
+        case 3:
+            currentPlayerType = Player.PlayerType.blinky
+        case 4:
+            currentPlayerType = Player.PlayerType.pinky
+        case 5:
+            currentPlayerType = Player.PlayerType.inky
+        case 6:
+            currentPlayerType = Player.PlayerType.clyde
+        default:
+            currentPlayerType = Player.PlayerType.pacViewer
+        }
     }
     
     @IBOutlet weak var gameModePicker: UIPickerView!
