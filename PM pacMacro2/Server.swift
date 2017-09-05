@@ -149,10 +149,10 @@ open class Server : NSObject {
         }
         return false
     }
-    open func deselectPlayer(currentPlayer: Player) -> Bool{
+    open func deselectPlayer(currentPlayerType: Player.PlayerType) -> Bool{
         // Selects a player and sets the initial location
         do {
-            let player_name = currentPlayer.playerType.rawValue
+            let player_name = currentPlayerType
             let deselect: String = "/player/\(player_name)"
             // Request code helpfully sourced from https://stackoverflow.com/a/31938246
             let url = URL(string: serverip + deselect)!
