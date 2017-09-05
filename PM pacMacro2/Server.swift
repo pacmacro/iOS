@@ -152,6 +152,35 @@ open class Server : NSObject {
             print(error)
         }
     }
+    open func deselectPlayer(currentPlayer: Player){
+        // Selects a player and sets the initial location
+        do {
+            let player_name = currentPlayer.playerType.rawValue
+            let deselect: String = "/player/\(player_name)"
+            // Request code helpfully sourced from https://stackoverflow.com/a/31938246
+            let url = URL(string: serverip + deselect)!
+            var request = URLRequest(url: url)
+            request.httpMethod = "DELETE"
+            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            // insert json data to the request
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data = data, error == nil else {
+                    print(error?.localizedDescription ?? "No data")
+                    return
+                }
+                let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+                if let responseJSON = responseJSON as? [String: Any] {
+                    print(responseJSON)
+                }
+            }
+            
+            task.resume()
+        } catch let error as NSError {
+            print(error)
+        }
+    }
+    
     open func putStatus(currentPlayer: Player){
         // TODO
         // Updates the status for this player
