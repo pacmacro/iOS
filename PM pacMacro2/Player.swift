@@ -54,6 +54,9 @@ open class Player {
     open func setCoordinates(lat: Double, long: Double){
         self.coordinates = CLLocationCoordinate2DMake(lat, long)
     }
+    open func getCoordinates() -> CLLocationCoordinate2D{
+        return coordinates
+    }
     
     open func isCaptured() -> Bool{
         if(status == PlayerStatus.captured){
