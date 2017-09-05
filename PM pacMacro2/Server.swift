@@ -119,7 +119,7 @@ open class Server : NSObject {
         }
     }
     
-    open func selectPlayer(currentPlayer: Player){
+    open func selectPlayer(currentPlayer: Player) -> Bool{
         // Selects a player and sets the initial location
         do {
             let player_name = currentPlayer.playerType.rawValue
@@ -136,21 +136,18 @@ open class Server : NSObject {
             // insert json data to the request
             request.httpBody = jsonData
             
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                guard let data = data, error == nil else {
-                    print(error?.localizedDescription ?? "No data")
-                    return
-                }
-                let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
-                if let responseJSON = responseJSON as? [String: Any] {
-                    print(responseJSON)
+            var response: URLResponse?
+            try? NSURLConnection.sendSynchronousRequest(request, returning: &response) as NSData?
+            if let httpResponse = response as? HTTPURLResponse {
+                print(httpResponse.statusCode)
+                if(httpResponse.statusCode == 200){
+                    return true
                 }
             }
-            
-            task.resume()
         } catch let error as NSError {
             print(error)
         }
+        return false
     }
     open func deselectPlayer(currentPlayer: Player){
         // Selects a player and sets the initial location
