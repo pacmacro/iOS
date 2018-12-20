@@ -87,92 +87,80 @@ open class Server : NSObject {
     
     open func putLocation(currentPlayer: Player) {
         // Sends current location to server
-        do {
-            let player_name = currentPlayer.playerType.rawValue
-            let putLocation: String = "/player/\(player_name)/location"
-            let json: [String: Any] = ["latitude": "\(currentPlayer.getCoordinates().latitude)",
-                "longitude": "\(currentPlayer.getCoordinates().longitude)"
-            ]
-            let jsonData = try? JSONSerialization.data(withJSONObject: json)
-            // Request code helpfully sourced from https://stackoverflow.com/a/31938246
-            let url = URL(string: serverip + putLocation)!
-            var request = URLRequest(url: url)
-            request.httpMethod = "PUT"
-            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-            // insert json data to the request
-            request.httpBody = jsonData
-            
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                guard let data = data, error == nil else {
-                    print(error?.localizedDescription ?? "No data")
-                    return
-                }
-                let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
-                if let responseJSON = responseJSON as? [String: Any] {
-                    print(responseJSON)
-                }
+        let player_name = currentPlayer.playerType.rawValue
+        let putLocation: String = "/player/\(player_name)/location"
+        let json: [String: Any] = ["latitude": "\(currentPlayer.getCoordinates().latitude)",
+            "longitude": "\(currentPlayer.getCoordinates().longitude)"
+        ]
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        // Request code helpfully sourced from https://stackoverflow.com/a/31938246
+        let url = URL(string: serverip + putLocation)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        // insert json data to the request
+        request.httpBody = jsonData
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                return
             }
-            
-            task.resume()
-        } catch let error as NSError {
-            print(error)
+            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+            if let responseJSON = responseJSON as? [String: Any] {
+                print(responseJSON)
+            }
         }
+        
+        task.resume()
     }
     
     open func selectPlayer(currentPlayer: Player) -> Bool{
         // Selects a player and sets the initial location
-        do {
-            let player_name = currentPlayer.playerType.rawValue
-            let putLocation: String = "/player/\(player_name)"
-            let json: [String: Any] = ["latitude": "\(currentPlayer.getCoordinates().latitude)",
-                "longitude": "\(currentPlayer.getCoordinates().longitude)"
-            ]
-            let jsonData = try? JSONSerialization.data(withJSONObject: json)
-            // Request code helpfully sourced from https://stackoverflow.com/a/31938246
-            let url = URL(string: serverip + putLocation)!
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-            // insert json data to the request
-            request.httpBody = jsonData
-            
-            var response: URLResponse?
-            try? NSURLConnection.sendSynchronousRequest(request, returning: &response) as NSData?
-            if let httpResponse = response as? HTTPURLResponse {
-                print(httpResponse.statusCode)
-                if(httpResponse.statusCode == 200){
-                    return true
-                }
+        let player_name = currentPlayer.playerType.rawValue
+        let putLocation: String = "/player/\(player_name)"
+        let json: [String: Any] = ["latitude": "\(currentPlayer.getCoordinates().latitude)",
+            "longitude": "\(currentPlayer.getCoordinates().longitude)"
+        ]
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        // Request code helpfully sourced from https://stackoverflow.com/a/31938246
+        let url = URL(string: serverip + putLocation)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        // insert json data to the request
+        request.httpBody = jsonData
+        
+        var response: URLResponse?
+        try? NSURLConnection.sendSynchronousRequest(request, returning: &response) as NSData?
+        if let httpResponse = response as? HTTPURLResponse {
+            print(httpResponse.statusCode)
+            if(httpResponse.statusCode == 200){
+                return true
             }
-        } catch let error as NSError {
-            print(error)
         }
         return false
     }
     open func deselectPlayer(currentPlayerType: Player.PlayerType) -> Bool{
         // Selects a player and sets the initial location
-        do {
-            let player_name = currentPlayerType
-            let deselect: String = "/player/\(player_name)"
-            // Request code helpfully sourced from https://stackoverflow.com/a/31938246
-            let url = URL(string: serverip + deselect)!
-            var request = URLRequest(url: url)
-            request.httpMethod = "DELETE"
-            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-            // insert json data to the request
-            
-            var response: URLResponse?
-            try? NSURLConnection.sendSynchronousRequest(request, returning: &response) as NSData?
-            if let httpResponse = response as? HTTPURLResponse {
-                print(httpResponse.statusCode)
-                if(httpResponse.statusCode == 200){
-                    return true
-                }
+        let player_name = currentPlayerType
+        let deselect: String = "/player/\(player_name)"
+        // Request code helpfully sourced from https://stackoverflow.com/a/31938246
+        let url = URL(string: serverip + deselect)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        // insert json data to the request
+        
+        var response: URLResponse?
+        try? NSURLConnection.sendSynchronousRequest(request, returning: &response) as NSData?
+        if let httpResponse = response as? HTTPURLResponse {
+            print(httpResponse.statusCode)
+            if(httpResponse.statusCode == 200){
+                return true
             }
-            
-        } catch let error as NSError {
-            print(error)
         }
+    
         return false
     }
     
