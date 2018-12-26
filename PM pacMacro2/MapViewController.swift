@@ -72,7 +72,7 @@ class ViewController: UIViewController,
         gameInstance.updateServer()
         //Initializing and setup
         currentDots = gameInstance.getVisibleDots()
-        currentPlayers = getPlayers()
+        currentPlayers = gameInstance.getVisiblePlayers()
         //Update Player locations on map
         for player in currentPlayers{
             drawPlayer(player, annotationList: &annotationList)
@@ -84,17 +84,6 @@ class ViewController: UIViewController,
         //Counter for times this has looped
         print("I have waited \(times) cycles")
         times += 1
-    }
-    func getPlayers() -> [Player]{
-        //Calls the server
-        let listOfPlayers: [Player] = gameInstance.getVisiblePlayers()
-        //Pretending to call server
-        // TODO remove this
-//        let listOfPlayers: [Player] = [
-//            Player.init(playerID: "1", playerName: "Josh", playerType: Player.playerType(rawValue: "Pacman")!, latitude: 49.280915, longitude: -123.122352)
-//            ]
-        return listOfPlayers
-        //Returns a list of aplayer objects
     }
     /**
      * Will check to see if the player has already been drawn
