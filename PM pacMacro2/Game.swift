@@ -13,7 +13,7 @@ open class Game {
     // TODO Fix this
     // static let sharedInstance = Game(players: [], dots: [], currentPlayer: Void)
     
-    open let gameServer = Server() 
+    public let gameServer = Server() 
     
     public var players : [Player]
     public var dots : [Dot]
@@ -27,7 +27,7 @@ open class Game {
         case player = "Player"
     }
     
-    // Default constructor, connects to server
+    /// Default constructor, connects to server
     init(){
         self.players = gameServer.getAllPlayerDetails()
         self.dots = gameServer.getDots()
@@ -37,6 +37,13 @@ open class Game {
         self.viewerState = Viewer.player
     }
     
+    /// Custom constructor which does not request from server
+    ///
+    /// - Parameters:
+    ///   - players: Array of players
+    ///   - dots: Array of dots
+    ///   - currentPlayer: The selected player
+    ///   - viewerState: The type of viewer
     init(players: [Player], dots : [Dot], currentPlayer : Player, viewerState: Viewer){
         self.players = players
         self.dots = dots
@@ -71,11 +78,14 @@ open class Game {
         return dots.filter({!$0.isCollected()})
     }
     
-    open func updateServer(){
-        // TODO: Implement
+    /// Fetches update from server and sends current location.
+    ///
+    /// - Returns: True if operation was successful.
+    open func updateServer() -> Bool{
         self.dots = gameServer.getDots()
         self.players = gameServer.getAllPlayerDetails()
         gameServer.putLocation(currentPlayer: currentPlayer!)
+        return true
     }
 
 }
