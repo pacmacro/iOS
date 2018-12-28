@@ -3,7 +3,8 @@ import Mapbox
 class ViewController: UIViewController,
                         MGLMapViewDelegate{
     //Controller for the mapview, i haven't renamed this since it would break a bunch of other elements
-    
+    static let REFRESHRATE = TimeInterval(10)
+    static let REFRESHPERIOD = TimeInterval(60)/REFRESHRATE
     var mapView: MGLMapView!
     var timer: Timer = Timer()
     var times = 0
@@ -27,14 +28,14 @@ class ViewController: UIViewController,
             zoomLevel: 15, animated: false)
         view.addSubview(mapView)
         mapView.delegate = self
-        //Drawing overlay
+        // TODO Drawing overlay
         
-        //drawBoundingRect()
+        // TODO drawBoundingRect()
         
-        //Initialize Annotation List
+        //TODO Initialize Annotation List
         
         //Call Timer Object
-        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(ViewController.mapLoop), userInfo: nil, repeats: true )
+        timer = Timer.scheduledTimer(timeInterval: ViewController.REFRESHPERIOD, target: self, selector: #selector(ViewController.mapLoop), userInfo: nil, repeats: true )
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         timer.invalidate()
@@ -62,14 +63,13 @@ class ViewController: UIViewController,
     func mapView(_ mapView: MGLMapView, fillColorForPolygonAnnotation annotation: MGLPolygon) -> UIColor {
         return UIColor.white
     }
-    /*
-     * This is the main logic for the map as it is updating
-     * Called by a timer object
-     * Calls functions to get data from the server and calls draw player on each
-     */
-    func mapLoop(){
+
+    /// Main game loop which runs until user exits the map view.
+    /// Utilizes a timer which requires the @objc function to expose it to the Objective-C API
+    /// [Source and further explanation](https://stackoverflow.com/a/48386977)
+    @objc func mapLoop(){
         // Update from server
-        gameInstance.updateServer()
+        let update = gameInstance.updateServer()
         //Initializing and setup
         currentDots = gameInstance.getVisibleDots()
         currentPlayers = gameInstance.getVisiblePlayers()
