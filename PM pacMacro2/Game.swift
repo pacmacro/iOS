@@ -84,7 +84,9 @@ open class Game {
     open func updateServer() -> Bool{
         self.dots = gameServer.getDots()
         self.players = gameServer.getAllPlayerDetails()
-        gameServer.putLocation(currentPlayer: currentPlayer!)
+        if(self.currentPlayer?.playerType != Player.PlayerType.ghostViewer || self.currentPlayer?.playerType != Player.PlayerType.pacViewer) {
+             gameServer.putLocation(currentPlayer: currentPlayer!)
+        }
         return true
     }
 
