@@ -1,8 +1,7 @@
 import Mapbox
 
-class ViewController: UIViewController,
+class MapViewController: UIViewController,
                         MGLMapViewDelegate{
-    //Controller for the mapview, i haven't renamed this since it would break a bunch of other elements
     static let REFRESHRATE = TimeInterval(10)
     static let REFRESHPERIOD = TimeInterval(60)/REFRESHRATE
     var mapView: MGLMapView!
@@ -35,7 +34,7 @@ class ViewController: UIViewController,
         //TODO Initialize Annotation List
         
         //Call Timer Object
-        timer = Timer.scheduledTimer(timeInterval: ViewController.REFRESHPERIOD, target: self, selector: #selector(ViewController.mapLoop), userInfo: nil, repeats: true )
+        timer = Timer.scheduledTimer(timeInterval: MapViewController.REFRESHPERIOD, target: self, selector: #selector(MapViewController.mapLoop), userInfo: nil, repeats: true )
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         timer.invalidate()
